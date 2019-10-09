@@ -1,17 +1,26 @@
 import React from "react";
 import "./App.css";
 import Form from "../Form/Form";
+import ReactModal from "react-modal";
+ReactModal.setAppElement("#root");
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      showForm: true,
-      showPlanet: false
-    }
+      showFormModal: true,
+      showPlanetModal: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: []
+    };
   }
 
-  handleFormSubmit = () => {
+  handleFormSubmit = ({ name, favQuote, ranking }) => {
+    if (name.length > 0 && favQuote.length > 0) {
+      this.setState({ name, favQuote, ranking });
+    }
     this.createMoviePlanets();
     this.hideFormModal();
   };
@@ -21,14 +30,23 @@ class App extends React.Component {
   updateState = () => {};
 
   hideFormModal = () => {
-    this.setState({ showForm: false })
-  }
+    console.log('hello')
+    this.setState({ showFormModal: false });
+  };
 
   render() {
-    const formModal = document.createElement('div')
     return (
       <div className="App">
-        <Form handleFormSubmit={this.handleFormSubmit} />
+        <ReactModal
+          isOpen={this.state.showFormModal}
+          onRequestClose={this.handleFormSubmit}
+          style={{ overlay: {}, content: {} }}
+          contentLabel="Welcome Form"
+          // className="WelcomeFormModal"
+          // overlayClassName="WelcomeFormOverlay"
+        >
+          <Form handleFormSubmit={this.handleFormSubmit} />
+        </ReactModal>
       </div>
     );
   }

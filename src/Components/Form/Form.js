@@ -6,7 +6,7 @@ class Form extends React.Component {
     this.state = {
       name: "",
       favQuote: "",
-      ranking: ""
+      ranking: "novice"
     };
   }
 
@@ -36,7 +36,7 @@ class Form extends React.Component {
           <option value="intermediate">Intermediate</option>
           <option value="expert">Expert</option>
         </select>
-        <button type="button" onClick={this.props.handleFormSubmit}>
+        <button type="button" onClick={() => this.props.handleFormSubmit(this.state)}>
           Submit
         </button>
       </form>
