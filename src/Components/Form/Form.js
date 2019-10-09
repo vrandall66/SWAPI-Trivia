@@ -32,7 +32,7 @@ class Form extends React.Component {
           value={this.state.favQuote}
         />
         <select name="ranking" onChange={this.handleChange}>
-          <option value="novice" name="ranking">Novice</option>
+          <option value="novice">Novice</option>
           <option value="intermediate">Intermediate</option>
           <option value="expert">Expert</option>
         </select>
