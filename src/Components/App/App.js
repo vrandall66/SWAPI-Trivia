@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import Form from "../Form/Form";
 import ReactModal from "react-modal";
+import { getAllMovies } from "../../ApiCalls/apiCalls";
 ReactModal.setAppElement("#root");
 
 class App extends React.Component {
@@ -15,7 +16,19 @@ class App extends React.Component {
       ranking: "",
       favoriteCharacters: []
     };
+    this.allMovies = {};
   }
+
+  componentDidMount = () => {
+    console.log(getAllMovies());
+    this.createMoviePlanets(getAllMovies());
+  };
+
+  createMoviePlanets = movies => {
+    console.log("hello");
+    console.log("movies", movies);
+    movies.map(film => console.log(film));
+  };
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
     if (name.length > 0 && favQuote.length > 0) {
@@ -30,7 +43,6 @@ class App extends React.Component {
   updateState = () => {};
 
   hideFormModal = () => {
-    console.log('hello')
     this.setState({ showFormModal: false });
   };
 
