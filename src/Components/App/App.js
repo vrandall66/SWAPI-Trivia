@@ -15,27 +15,37 @@ class App extends React.Component {
       favQuote: "",
       ranking: "",
       favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: 0
     };
-    this.allMovies = {};
+  
   }
 
   componentDidMount = () => {
     getAllMovies()
-      .then(movieData => this.createMovieObjects(movieData.results))
+      .then(movieData => this.setState({allMovies: movieData.results}))
   };
 
   createMovieObjects = (movies) => {
-    return movies.map( movie => {
-      
-    })
-    console.log("hello", movies);
+    
   }
 
   createMoviePlanets = () => {
-    console.log("hello");
-    // console.log("movies", movies);
-    // movies.map(film => console.log(film));
+    const planets = this.state.allMovies.map(movie => {
+      return {
+        title: movie.title,
+        id: movie.episode_id,
+        releaseDate: movie.release_date
+      }
+    })
+    return this.sortMovies(planets)
   };
+
+  sortMovies = (movies) => {
+    return movies.sort( (a, b) => {
+      return a.id - b.id
+    })
+  }
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
       this.setState({ name, favQuote, ranking });
