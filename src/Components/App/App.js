@@ -3,7 +3,9 @@ import "./App.css";
 import Form from "../Form/Form";
 import ReactModal from "react-modal";
 import { getAllMovies } from "../../ApiCalls/apiCalls";
+import Movies from '../Movies/Movies'
 ReactModal.setAppElement("#root");
+
 
 class App extends React.Component {
   constructor() {
@@ -18,7 +20,6 @@ class App extends React.Component {
       allMovies: [],
       currentMovie: 0
     };
-  
   }
 
   componentDidMount = () => {
@@ -26,11 +27,7 @@ class App extends React.Component {
       .then(movieData => this.setState({allMovies: movieData.results}))
   };
 
-  createMovieObjects = (movies) => {
-    
-  }
-
-  createMoviePlanets = () => {
+  createMovieObjects = () => {
     const planets = this.state.allMovies.map(movie => {
       return {
         title: movie.title,
@@ -50,11 +47,9 @@ class App extends React.Component {
   handleFormSubmit = ({ name, favQuote, ranking }) => {
       this.setState({ name, favQuote, ranking });
       this.hideFormModal();
-      this.createMoviePlanets();
+      // start building page
+      this.createMovieObjects();
   };
-
-
-  updateState = () => {};
 
   hideFormModal = () => {
     this.setState({ showFormModal: false });
@@ -72,6 +67,7 @@ class App extends React.Component {
           // overlayClassName="WelcomeFormOverlay"
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
+          <Movies />
         </ReactModal>
       </div>
     );
