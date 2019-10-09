@@ -15,16 +15,21 @@ class App extends React.Component {
       favQuote: "",
       ranking: "",
       favoriteCharacters: [],
-      movies: []
     };
     this.allMovies = {};
   }
 
   componentDidMount = () => {
     getAllMovies()
-      .then(movieData => this.setState({movies: movieData.results}))
-      .then(() => this.createMoviePlanets())
+      .then(movieData => this.createMovieObjects(movieData.results))
   };
+
+  createMovieObjects = (movies) => {
+    return movies.map( movie => {
+      
+    })
+    console.log("hello", movies);
+  }
 
   createMoviePlanets = () => {
     console.log("hello");
@@ -38,7 +43,6 @@ class App extends React.Component {
       this.createMoviePlanets();
   };
 
-  createMoviePlanets = () => {};
 
   updateState = () => {};
 
