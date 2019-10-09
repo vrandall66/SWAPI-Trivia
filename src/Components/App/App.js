@@ -14,28 +14,28 @@ class App extends React.Component {
       name: "",
       favQuote: "",
       ranking: "",
-      favoriteCharacters: []
+      favoriteCharacters: [],
+      movies: []
     };
     this.allMovies = {};
   }
 
   componentDidMount = () => {
-    console.log(getAllMovies());
-    this.createMoviePlanets(getAllMovies());
+    getAllMovies()
+      .then(movieData => this.setState({movies: movieData.results}))
+      .then(() => this.createMoviePlanets())
   };
 
-  createMoviePlanets = movies => {
+  createMoviePlanets = () => {
     console.log("hello");
-    console.log("movies", movies);
-    movies.map(film => console.log(film));
+    // console.log("movies", movies);
+    // movies.map(film => console.log(film));
   };
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
-    if (name.length > 0 && favQuote.length > 0) {
       this.setState({ name, favQuote, ranking });
-    }
-    this.createMoviePlanets();
-    this.hideFormModal();
+      this.hideFormModal();
+      this.createMoviePlanets();
   };
 
   createMoviePlanets = () => {};
