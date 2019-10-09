@@ -3,7 +3,9 @@ import "./App.css";
 import Form from "../Form/Form";
 import ReactModal from "react-modal";
 import { getAllMovies } from "../../ApiCalls/apiCalls";
+import Movies from '../Movies/Movies'
 ReactModal.setAppElement("#root");
+
 
 class App extends React.Component {
   constructor() {
@@ -15,32 +17,39 @@ class App extends React.Component {
       favQuote: "",
       ranking: "",
       favoriteCharacters: [],
-      movies: []
+      allMovies: [],
+      currentMovie: 0
     };
-    this.allMovies = {};
   }
 
   componentDidMount = () => {
     getAllMovies()
-      .then(movieData => this.setState({movies: movieData.results}))
-      .then(() => this.createMoviePlanets())
+      .then(movieData => this.setState({allMovies: movieData.results}))
   };
 
-  createMoviePlanets = () => {
-    console.log("hello");
-    // console.log("movies", movies);
-    // movies.map(film => console.log(film));
+  createMovieObjects = () => {
+    const planets = this.state.allMovies.map(movie => {
+      return {
+        title: movie.title,
+        id: movie.episode_id,
+        releaseDate: movie.release_date
+      }
+    })
+    return this.sortMovies(planets)
   };
+
+  sortMovies = (movies) => {
+    return movies.sort( (a, b) => {
+      return a.id - b.id
+    })
+  }
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
       this.setState({ name, favQuote, ranking });
       this.hideFormModal();
-      this.createMoviePlanets();
+      // start building page
+      this.createMovieObjects();
   };
-
-  createMoviePlanets = () => {};
-
-  updateState = () => {};
 
   hideFormModal = () => {
     this.setState({ showFormModal: false });
@@ -58,6 +67,7 @@ class App extends React.Component {
           // overlayClassName="WelcomeFormOverlay"
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
+          <Movies />
         </ReactModal>
       </div>
     );

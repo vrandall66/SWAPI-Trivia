@@ -1,4 +1,5 @@
 import React from "react";
+import './Form.css'
 
 class Form extends React.Component {
   constructor() {
@@ -27,21 +28,26 @@ class Form extends React.Component {
   render() {
     return (
       <form>
-        <input
+        <label htmlFor='name'>Name</label>
+        <input 
+          id='name'
           type="text"
           name="name"
           placeholder="name"
           onChange={this.handleChange}
           value={this.state.name}
         />
-        <input
+        <label htmlFor='favQuote'>Favorite Quote</label>
+        <input 
+          id='favQuote'
           type="text"
           name="favQuote"
           placeholder="Favorite quote from the films"
           onChange={this.handleChange}
           value={this.state.favQuote}
         />
-        <select name="ranking" onChange={this.handleChange}>
+        <label htmlFor='ranking'>Select Ranking</label>
+        <select id='ranking' name="ranking" onChange={this.handleChange}>
           <option value="novice">Novice</option>
           <option value="intermediate">Intermediate</option>
           <option value="expert">Expert</option>
