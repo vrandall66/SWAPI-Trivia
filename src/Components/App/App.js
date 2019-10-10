@@ -1,11 +1,14 @@
 import React from "react";
-import "./App.css";
+import { getAllMovies } from "../../ApiCalls/apiCalls";
+import { Route, Link } from "react-router-dom";
+import Home from "../Home/Home";
 import Form from "../Form/Form";
 import ReactModal from "react-modal";
-import { getAllMovies } from "../../ApiCalls/apiCalls";
-import Movies from '../Movies/Movies'
-ReactModal.setAppElement("#root");
+import MoviesContainer from "../MoviesContainer/MoviesContainer";
+import "./App.css";
+// import '../'
 
+ReactModal.setAppElement("#root");
 
 class App extends React.Component {
   constructor() {
@@ -23,8 +26,9 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    getAllMovies()
-      .then(movieData => this.setState({allMovies: movieData.results}))
+    getAllMovies().then(movieData =>
+      this.setState({ allMovies: movieData.results })
+    );
   };
 
   createMovieObjects = () => {
@@ -33,22 +37,22 @@ class App extends React.Component {
         title: movie.title,
         id: movie.episode_id,
         releaseDate: movie.release_date
-      }
-    })
-    return this.sortMovies(planets)
+      };
+    });
+    return this.sortMovies(planets);
   };
 
-  sortMovies = (movies) => {
-    return movies.sort( (a, b) => {
-      return a.id - b.id
-    })
-  }
+  sortMovies = movies => {
+    return movies.sort((a, b) => {
+      return a.id - b.id;
+    });
+  };
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
-      this.setState({ name, favQuote, ranking });
-      this.hideFormModal();
-      // start building page
-      this.createMovieObjects();
+    this.setState({ name, favQuote, ranking });
+    this.hideFormModal();
+    // start building page
+    this.createMovieObjects();
   };
 
   hideFormModal = () => {
@@ -67,8 +71,14 @@ class App extends React.Component {
           // overlayClassName="WelcomeFormOverlay"
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
-          <Movies />
+          {/* <Movies /> */}
         </ReactModal>
+        <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/movies"
+          render={() => <MoviesContainer movies={this.state.allMovies} className="MoviesContainer"/>}
+        />
       </div>
     );
   }
