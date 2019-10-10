@@ -86,6 +86,12 @@ class App extends React.Component {
               movies={this.state.allMovies}
               updatePlanetModalState={this.updatePlanetModalState}
               className="MoviesContainer"
+              reactModal={
+                <ReactModal
+                  isOpen={this.state.showPlanetModal}
+                  style={{ overlay: {}, content: {} }}
+                />
+              }
             />
           )}
         />
