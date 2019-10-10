@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const MoviePlanet = () => {
-  return (
-    <div></div>
-  )
-}
+  return <div></div>;
+};
 
-export default MoviePlanet
+export default MoviePlanet;
