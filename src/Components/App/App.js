@@ -5,6 +5,7 @@ import Home from "../Home/Home";
 import Form from "../Form/Form";
 import ReactModal from "react-modal";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
+import MovieModal from '../MovieModal/MovieModal';
 import "./App.css";
 // import '../'
 
@@ -21,7 +22,7 @@ class App extends React.Component {
       ranking: "",
       favoriteCharacters: [],
       allMovies: [],
-      currentMovie: 0
+      currentMovie: {}
     };
   }
 
@@ -63,6 +64,12 @@ class App extends React.Component {
     this.setState({ showPlanetModal: !this.state.showPlanetModal });
   };
 
+  updateCurrentMovie = (movie) => {
+    this.setState({ currentMovie: movie }, this.updatePlanetModalState())
+    // filter through state.movies
+    // to find the id of the movie that matches argument id
+  }
+
   render() {
     return (
       <div className="App">
@@ -85,12 +92,16 @@ class App extends React.Component {
             <MoviesContainer
               movies={this.state.allMovies}
               updatePlanetModalState={this.updatePlanetModalState}
+              updateCurrentMovie={this.updateCurrentMovie}
               className="MoviesContainer"
               reactModal={
                 <ReactModal
                   isOpen={this.state.showPlanetModal}
                   style={{ overlay: {}, content: {} }}
-                />
+                  
+                  >
+                  <MovieModal currentMovie={this.state.currentMovie}/>
+                </ReactModal>
               }
             />
           )}
