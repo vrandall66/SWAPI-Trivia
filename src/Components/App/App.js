@@ -1,11 +1,12 @@
 import React from "react";
 import { getAllMovies } from "../../ApiCalls/apiCalls";
 import { Route, Link } from "react-router-dom";
-import Home from '../Home/Home';
+import Home from "../Home/Home";
 import Form from "../Form/Form";
 import ReactModal from "react-modal";
-import MoviePlanet from "../MoviePlanet/MoviePlanet";
+import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import "./App.css";
+// import '../'
 
 ReactModal.setAppElement("#root");
 
@@ -70,10 +71,14 @@ class App extends React.Component {
           // overlayClassName="WelcomeFormOverlay"
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
-          <Route exact path='/' component={Home} />
-          <Route exact path='/movies' component={MoviePlanet}/>
           {/* <Movies /> */}
         </ReactModal>
+        <Route exact path="/" component={Home} />
+        <Route
+          exact
+          path="/movies"
+          render={() => <MoviesContainer movies={this.state.allMovies} className="MoviesContainer"/>}
+        />
       </div>
     );
   }

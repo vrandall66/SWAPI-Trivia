@@ -1,0 +1,10 @@
+.MoviesContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.MoviesContainer-planets {
+  align-items: flex-end;
+  display: flex;
+}
