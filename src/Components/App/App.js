@@ -59,6 +59,10 @@ class App extends React.Component {
     this.setState({ showFormModal: false });
   };
 
+  updatePlanetModalState = () => {
+    this.setState({ showPlanetModal: !this.state.showPlanetModal });
+  };
+
   render() {
     return (
       <div className="App">
@@ -77,7 +81,13 @@ class App extends React.Component {
         <Route
           exact
           path="/movies"
-          render={() => <MoviesContainer movies={this.state.allMovies} className="MoviesContainer"/>}
+          render={() => (
+            <MoviesContainer
+              movies={this.state.allMovies}
+              updatePlanetModalState={this.updatePlanetModalState}
+              className="MoviesContainer"
+            />
+          )}
         />
       </div>
     );

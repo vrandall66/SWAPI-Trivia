@@ -2,7 +2,7 @@ import React from "react";
 import MoviePlanet from "../MoviePlanet/MoviePlanet";
 import './MoviesContainer.css'
 
-const MoviesContainer = ({ movies }) => {
+const MoviesContainer = ({ movies, updatePlanetModalState }) => {
   const sortMovies = movies => {
     return movies.sort((a, b) => {
       return a.id - b.id;
@@ -23,7 +23,7 @@ const MoviesContainer = ({ movies }) => {
   };
 
   const moviePlanets = createMovieObjects().map((movie, index) => {
-    return <MoviePlanet movie={movie} key={index} />;
+    return <MoviePlanet movie={movie} key={index} updatePlanetModalState={ updatePlanetModalState }/>;
   });
 
   return (
