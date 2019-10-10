@@ -3,9 +3,10 @@ import "./App.css";
 import Form from "../Form/Form";
 import ReactModal from "react-modal";
 import { getAllMovies } from "../../ApiCalls/apiCalls";
-import Movies from '../Movies/Movies'
-ReactModal.setAppElement("#root");
+import MoviePlanet from "../MoviePlanet/MoviePlanet";
+import { Route, Link } from "react-router-dom";
 
+ReactModal.setAppElement("#root");
 
 class App extends React.Component {
   constructor() {
@@ -23,8 +24,9 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    getAllMovies()
-      .then(movieData => this.setState({allMovies: movieData.results}))
+    getAllMovies().then(movieData =>
+      this.setState({ allMovies: movieData.results })
+    );
   };
 
   createMovieObjects = () => {
@@ -33,22 +35,22 @@ class App extends React.Component {
         title: movie.title,
         id: movie.episode_id,
         releaseDate: movie.release_date
-      }
-    })
-    return this.sortMovies(planets)
+      };
+    });
+    return this.sortMovies(planets);
   };
 
-  sortMovies = (movies) => {
-    return movies.sort( (a, b) => {
-      return a.id - b.id
-    })
-  }
+  sortMovies = movies => {
+    return movies.sort((a, b) => {
+      return a.id - b.id;
+    });
+  };
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
-      this.setState({ name, favQuote, ranking });
-      this.hideFormModal();
-      // start building page
-      this.createMovieObjects();
+    this.setState({ name, favQuote, ranking });
+    this.hideFormModal();
+    // start building page
+    this.createMovieObjects();
   };
 
   hideFormModal = () => {
@@ -67,7 +69,8 @@ class App extends React.Component {
           // overlayClassName="WelcomeFormOverlay"
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
-          <Movies />
+          <Route exact path='/movies' component={MoviePlanet}/>
+          {/* <Movies /> */}
         </ReactModal>
       </div>
     );
