@@ -20,3 +20,30 @@
 .App-link {
   color: #09d3ac;
 }
+
+.ReactModalPortal {
+  align-items: space-around;
+  display: flex;
+  justify-content: space-around;
+}
+
+.WelcomeFormModal {
+  align-items: center;
+  border-radius: 180%;
+  display: flex;
+  justify-content: space-around;
+  height: 75vh;
+  width: 75%;
+}
+
+.WelcomeFormOverlay {
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.5);
+  border-radius: 180%;
+  color: yellow;
+  display: flex;
+  font-size: 2em;
+  height: 75vhvh;
+  justify-content: space-around;
+  margin: 0;
+}
