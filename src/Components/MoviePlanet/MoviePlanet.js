@@ -2,7 +2,6 @@ import React from "react";
 import "./MoviePlanet.css";
 
 const MoviePlanet = ({ movie, updatePlanetModalState, updateCurrentMovie }) => {
-  console.log("hello", movie);
   return (
     <div
       key={movie.id}
