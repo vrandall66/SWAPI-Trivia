@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./Form.css";
 
 class Form extends React.Component {
@@ -27,7 +27,7 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="Form">
         <label htmlFor="name">Name</label>
         <input
           id="name"
@@ -52,9 +52,11 @@ class Form extends React.Component {
           <option value="intermediate">Intermediate</option>
           <option value="expert">Expert</option>
         </select>
-        <Link to="/movies"><button type="button" onClick={() => this.handleSubmit()}>
-          Submit
-        </button></Link>
+        <Link to="/movies">
+          <button type="button" onClick={() => this.handleSubmit()}>
+            Submit
+          </button>
+        </Link>
         {this.state.error && (
           <h3>
             The Force Is Not With You! <br /> Please Complete The Form

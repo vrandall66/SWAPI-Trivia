@@ -1,13 +1,8 @@
-import React from 'react';
-import './Home.css';
-import deathStar from '../../images/DeathStar.png'
+import React from "react";
+import "./Home.css";
 
 const Home = () => {
-  return(
-    <div>
-      <img src={deathStar} alt="Death Star Ship" className="deathStar-Home"/>
-    </div>
-  )
-}
+  return <div></div>;
+};
 
 export default Home;

@@ -2,7 +2,12 @@ import React from "react";
 import MoviePlanet from "../MoviePlanet/MoviePlanet";
 import "./MoviesContainer.css";
 
-const MoviesContainer = ({ movies, updatePlanetModalState, reactModal, updateCurrentMovie }) => {
+const MoviesContainer = ({
+  movies,
+  updatePlanetModalState,
+  reactModal,
+  updateCurrentMovie
+}) => {
   console.log(movies);
   const sortMovies = movies => {
     return movies.sort((a, b) => {

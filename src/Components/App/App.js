@@ -6,7 +6,7 @@ import Form from "../Form/Form";
 import ReactModal from "react-modal";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieModal from "../MovieModal/MovieModal";
-import CharactersContainer from '../CharactersContainer/CharactersContainer';
+import CharactersContainer from "../CharactersContainer/CharactersContainer";
 import "./App.css";
 // import '../'
 
@@ -79,8 +79,8 @@ class App extends React.Component {
           onRequestClose={this.handleFormSubmit}
           style={{ overlay: {}, content: {} }}
           contentLabel="Welcome Form"
-          // className="WelcomeFormModal"
-          // overlayClassName="WelcomeFormOverlay"
+          className="WelcomeFormModal"
+          overlayClassName="WelcomeFormOverlay"
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
           {/* <Movies /> */}
@@ -109,15 +109,20 @@ class App extends React.Component {
             />
           )}
         />
-        <Route extact path='/movies/:id' render={({ match }) => {
-          const id = parseInt(match.params.id)
-          const episode = this.state.allMovies.find(episode => episode.episode_id === id)
-          return (
-            <>
-            <CharactersContainer episode={episode}/>
-            </>
-          )
-        }}
+        <Route
+          extact
+          path="/movies/:id"
+          render={({ match }) => {
+            const id = parseInt(match.params.id);
+            const episode = this.state.allMovies.find(
+              episode => episode.episode_id === id
+            );
+            return (
+              <>
+                <CharactersContainer episode={episode} />
+              </>
+            );
+          }}
         />
       </div>
     );
