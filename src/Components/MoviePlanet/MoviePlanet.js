@@ -6,7 +6,6 @@ const MoviePlanet = ({ movie, updatePlanetModalState, updateCurrentMovie }) => {
     <div
       key={movie.id}
       className="planet"
-      movieData={movie}
       onClick={() => {
         // updatePlanetModalState()
         updateCurrentMovie(movie)
