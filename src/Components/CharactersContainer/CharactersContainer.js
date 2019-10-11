@@ -1,30 +1,37 @@
 import React from "react";
+import Character from "../Character/Character"
 import "./CharactersContainer.css";
-import { thisExpression } from "@babel/types";
+import { getAllCharacters } from '../../ApiCalls/apiCalls'
 
 class CharactersContainer extends React.Component {
   constructor({ episode }) {
     super();
-    this.state = { episode };
+    this.state = { 
+      episode,
+      characters: []
+     };
   }
 
-  getCharacters = (characters) => {
-    const fetchCharacters = characters.map( character => {
-      return fetch(character)
-      .then( response => response.json())
-    
+  componentDidMount = () => {
+    const fetchCharacters = this.state.episode.characters.map(character => {
+      return getAllCharacters(character)
     })
-
-    return Promise.all(fetchCharacters)
-    .then( data => console.log(data))
+      return Promise.all(fetchCharacters)
+        .then(characters => this.setState({ characters } ))
   }
+
+  getCharacter = () => {
+    return this.state.characters.map( character => <Character character={character} />)
+  }
+
+
   render() {
-    this.getCharacters(this.state.episode.characters)
-    console.log("anything?", this.state.episode);
     return (
       <div className="CharactersContainer">
-        <section></section>
         <h1>{this.state.episode.opening_crawl}</h1>
+        <>
+          {this.getCharacter()}
+        </>
       </div>
     );
   }
