@@ -1,0 +1,15 @@
+.UserProfile {
+  background-color: lightgrey;
+}
+.UserProfile__button--sign-out {
+  background-color: green;
+}
+
+.UserProfile__hamburger-icon {
+  height: 20px;
+  width: 20px;
+}
+
+.UserProfile--userMenu {
+  display: flex
+}

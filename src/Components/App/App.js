@@ -19,6 +19,7 @@ class App extends React.Component {
     this.state = {
       showFormModal: true,
       showPlanetModal: false,
+      showUserMenu: false,
       name: "",
       favQuote: "",
       ranking: "",
@@ -65,6 +66,10 @@ class App extends React.Component {
     this.setState({ showPlanetModal: !this.state.showPlanetModal });
   };
 
+  updateUserMenuState = () => {
+    this.setState({ showUserMenu: !this.state.showUserMenu });
+  }
+
   updateCurrentMovie = movie => {
     this.setState({ currentMovie: movie }, this.updatePlanetModalState());
   };
@@ -73,10 +78,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <UserProfile
+          isOpen={this.state.showUserMenu}
           userName={this.state.name}
           userFavQuote={this.state.favQuote}
           userRanking={this.state.ranking}
           userFavCharacters={this.state.favoriteCharacters}
+          updateUserMenuState={this.updateUserMenuState}
         />
         <ReactModal
           isOpen={this.state.showFormModal}
