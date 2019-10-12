@@ -7,6 +7,7 @@ import ReactModal from "react-modal";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieModal from "../MovieModal/MovieModal";
 import CharactersContainer from "../CharactersContainer/CharactersContainer";
+import UserProfile from "../UserProfile/UserProfile";
 import "./App.css";
 // import '../'
 
@@ -53,7 +54,6 @@ class App extends React.Component {
   handleFormSubmit = ({ name, favQuote, ranking }) => {
     this.setState({ name, favQuote, ranking });
     this.hideFormModal();
-    // start building page
     this.createMovieObjects();
   };
 
@@ -67,13 +67,17 @@ class App extends React.Component {
 
   updateCurrentMovie = movie => {
     this.setState({ currentMovie: movie }, this.updatePlanetModalState());
-    // filter through state.movies
-    // to find the id of the movie that matches argument id
   };
 
   render() {
     return (
       <div className="App">
+        <UserProfile
+          userName={this.state.name}
+          userFavQuote={this.state.favQuote}
+          userRanking={this.state.ranking}
+          userFavCharacters={this.state.favoriteCharacters}
+        />
         <ReactModal
           isOpen={this.state.showFormModal}
           onRequestClose={this.handleFormSubmit}
@@ -83,7 +87,6 @@ class App extends React.Component {
           overlayClassName="WelcomeFormOverlay"
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
-          {/* <Movies /> */}
         </ReactModal>
         <Route exact path="/" component={Home} />
         <Route
