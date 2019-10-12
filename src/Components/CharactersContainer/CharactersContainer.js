@@ -24,7 +24,6 @@ class CharactersContainer extends React.Component {
     return this.state.characters.map( character => <Character character={character} />)
   }
 
-
   render() {
     return (
       <div className="CharactersContainer">
