@@ -1,27 +1,22 @@
-import React from 'react'
-import "./Character.css"
-import { getCharacterInfo } from '../../ApiCalls/apiCalls'
+import React from "react";
+import "./Character.css";
 
-
-const Character = ({ character }) => {
-  console.log('in char', character)
-  
-  const getFetch = (url) => {
-    return getCharacterInfo(url)
-    .then( info => info)
-    // .then( data => console.log(data.name))
-  }
-  let homeworldFetch = getFetch(character.homeworld)
-   
-
-  return(
-    <div>
-      <h1>{character.name}</h1>
-      <p>{console.log('line19',homeworldFetch.name)}</p>
-      <p>{console.log('line20', console.log(getFetch((character.species))), )}</p>
-
-    </div>
-  )
-}
+const Character = ({ characterInfo }) => {
+  console.log('characterInfo', characterInfo)
+  return characterInfo.map( character => {
+    console.log('character', character)
+    const { name, species, homeworld, films } = character
+    return (
+      <div className="Character">
+        <button type="button">Favorite</button>
+        <h1>{name}</h1>
+        <p>{species}</p>
+        <p>{homeworld.homeName}</p>
+        <p>{homeworld.homePopulation}</p>
+        <p>{films}</p>
+      </div>
+    );
+  })
+};
 
 export default Character;
