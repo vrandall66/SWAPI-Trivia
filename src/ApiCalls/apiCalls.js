@@ -7,14 +7,9 @@ export const fetchCharacter = (character) => {
   .then(res => res.json())
   .then ( character => {
       const { name, homeworld, species, films } = character
-      return fetchSpecies(species)
-      .then(lifeForm => ({ name, homeworld, lifeForm, films}))
+      return fetchAllCharacterData(species, homeworld, films)
+      .then(response => console.log(response))
     })
-    // .then(character => {
-    //   const { name, homeworld, species, films } = character
-    //   return fetchHomeworld(homeworld)
-    //     .then(homeworld => ({ name, homeworld, species, films }))
-    // })
   }
   
   const fetchSpecies = (url) => {
@@ -23,11 +18,28 @@ export const fetchCharacter = (character) => {
     .then(lifeForm => lifeForm.name)
 }
 
-// const fetchHomeworld = (url) => {
-//   return fetch(url)
-//     .then(res => res.json())
-//     .then(home => home.name)
-// }
+const fetchHomeworld = (url) => {
+  return fetch(url)
+    .then(res => res.json())
+    .then(home => ({homeName: home.name, homePopulation: home.population}))
+}
+
+const fetchAllFilms = (allFilmUrls) => {
+  const allFilms = allFilmUrls.map(film => {
+    return fetch(film)
+    .then(film => film.json())
+    .then(film => film.title)
+  })
+  return Promise.all(allFilms)
+}
+
+const fetchAllCharacterData = (speciesUrl, homeworldUrl, filmUrl) => {
+    let speciesData = fetchSpecies(speciesUrl);
+    let homeworldData = fetchHomeworld(homeworldUrl);
+    let filmsData = fetchAllFilms(filmUrl);
+
+    return Promise.all([speciesData, homeworldData, filmsData])
+}
 
 export const getCharacterInfo = (characterUrl) => {
   return fetch(characterUrl)
