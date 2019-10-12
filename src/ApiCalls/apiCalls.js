@@ -8,7 +8,6 @@ export const fetchCharacter = (character) => {
   .then ( character => {
       const { name, homeworld, species, films } = character
       return fetchAllCharacterData(species, homeworld, films)
-      // .then(response => console.log('response', response))
         .then(response => ({ name, response}))
     })
   }
@@ -40,17 +39,4 @@ const fetchAllCharacterData = (speciesUrl, homeworldUrl, filmUrl) => {
     let filmsData = fetchAllFilms(filmUrl);
 
     return Promise.all([speciesData, homeworldData, filmsData])
-}
-
-export const getCharacterInfo = (characterUrl) => {
-  return fetch(characterUrl)
-  .then(res => res.json())
-  .then( character => {
-    return fetch(character.homeworld)
-      .then(res => res.json())
-      .then( home => {
-        return home.name
-      })
-  })
-
 }
