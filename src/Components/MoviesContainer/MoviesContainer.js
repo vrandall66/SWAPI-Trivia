@@ -8,7 +8,6 @@ const MoviesContainer = ({
   reactModal,
   updateCurrentMovie
 }) => {
-  console.log(movies);
   const sortMovies = movies => {
     return movies.sort((a, b) => {
       return a.id - b.id;
