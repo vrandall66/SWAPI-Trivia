@@ -1,7 +1,7 @@
 import React from "react";
-import Character from "../Character/Character"
+// import Character from "../Character/Character"
 import "./CharactersContainer.css";
-import { getAllCharacters } from '../../ApiCalls/apiCalls'
+import { fetchCharacter } from '../../ApiCalls/apiCalls'
 
 class CharactersContainer extends React.Component {
   constructor({ episode }) {
@@ -14,14 +14,10 @@ class CharactersContainer extends React.Component {
 
   componentDidMount = () => {
     const fetchCharacters = this.state.episode.characters.map(character => {
-      return getAllCharacters(character)
+      return fetchCharacter(character)
     })
       return Promise.all(fetchCharacters)
-        .then(characters => this.setState({ characters } ))
-  }
-
-  getCharacter = () => {
-    return this.state.characters.map( character => <Character character={character} />)
+        .then(characters => {this.setState({ characters }, console.log(this.state.characters) )})
   }
 
   render() {
@@ -29,7 +25,7 @@ class CharactersContainer extends React.Component {
       <div className="CharactersContainer">
         <h1>{this.state.episode.opening_crawl}</h1>
         <>
-          {this.getCharacter()}
+          {/* {this.getCharacter()} */}
         </>
       </div>
     );
