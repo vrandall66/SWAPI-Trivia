@@ -33,21 +33,14 @@ class CharactersContainer extends React.Component {
     this.setState({ characters: characterCards });
   };
 
-  // buildCharacterCards = () => {
-  //   return this.state.characters.map((character, i) => {
-  //     return <Character characterInfo={character} key={i}/>;
-  //   });
-  // };
-
   render() {
-    // let characters = this.state.characters.map((character, i) => {
-    //   return <Character characterInfo={character} key={i} />;
-    // })
     return (
       <div className="CharactersContainer">
-        <h1>{this.state.episode.opening_crawl}</h1>
+        <h1 className="CharactersContainer-h1">{this.state.episode.opening_crawl}</h1>
 
-        <> <Character characterInfo={this.state.characters} /> </>
+        <section className="CharactersContainer-section"> 
+        <Character characterInfo={this.state.characters} />
+        </section>
       </div>
     );
   }

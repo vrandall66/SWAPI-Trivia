@@ -1,3 +1,20 @@
 .CharactersContainer {
   color: yellow;
+  display: flex;
+  flex-direction: column;
+}
+
+.CharactersContainer-h1 {
+  height: 25vh;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.CharactersContainer-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 65vh;
+  overflow: scroll;
+  width: 100%;
 }
