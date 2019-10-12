@@ -17,7 +17,21 @@ class CharactersContainer extends React.Component {
       return fetchCharacter(character)
     })
       return Promise.all(fetchCharacters)
-        .then(characters => {this.setState({ characters }, console.log(this.state.characters) )})
+      // .then(characters => console.log(characters))
+        // .then(characters => this.setState({characters}))
+        .then(characters => this.createCharacterCard(characters))
+  }
+
+  createCharacterCard = (characters) => {
+    const characterCards = characters.map(character => {
+      return (
+        { name: character.name,
+        species: character.response[0],
+        homeworld: character.response[1],
+        movies: character.response[2]
+      }
+    )})
+    this.setState({ characters: characterCards })
   }
 
   render() {

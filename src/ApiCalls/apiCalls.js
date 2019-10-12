@@ -8,7 +8,8 @@ export const fetchCharacter = (character) => {
   .then ( character => {
       const { name, homeworld, species, films } = character
       return fetchAllCharacterData(species, homeworld, films)
-      .then(response => console.log(response))
+      // .then(response => console.log('response', response))
+        .then(response => ({ name, response}))
     })
   }
   
