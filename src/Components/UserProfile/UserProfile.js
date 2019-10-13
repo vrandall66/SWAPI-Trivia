@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./UserProfile.css";
 import hamburgerIcon from "../../images/HamburgerIcon.png";
 
@@ -8,12 +9,13 @@ const UserProfile = ({
   userFavQuote,
   userRanking,
   userFavCharacters,
-  updateUserMenuState
+  updateUserMenuState,
+  userLogoutReset
 }) => {
   return (
     <div className="UserProfile">
       <div className="UserProfile--userMenu">
-        <h1>{userName}</h1>
+        <h1 className="UserProfile--userName">{userName}</h1>
         <input
           type="image"
           alt="User Profile Dropdown Menu Icon"
@@ -27,9 +29,15 @@ const UserProfile = ({
           <h5>{userFavQuote}</h5>
           <h5>{userRanking}</h5>
           <h5>{userFavCharacters}</h5>
-          <button type="button" className="UserProfile__button--sign-out">
-            Sign out
-          </button>
+          <Link to="/">
+            <button
+              type="button"
+              className="UserProfile__button--sign-out"
+              onClick={userLogoutReset}
+            >
+              Sign out
+            </button>
+          </Link>
         </div>
       ) : null}
     </div>

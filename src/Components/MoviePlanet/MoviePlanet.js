@@ -1,13 +1,13 @@
 import React from "react";
 import "./MoviePlanet.css";
 
-const MoviePlanet = ({ movie, updatePlanetModalState, updateCurrentMovie }) => {
+const MoviePlanet = ({ movie, updateCurrentMovie, resetMovieState }) => {
   return (
     <div
       key={movie.id}
       className="planet"
       onClick={() => {
-        // updatePlanetModalState()
+        // resetMovieState();
         updateCurrentMovie(movie);
       }}
     >

@@ -3,6 +3,7 @@ export const getAllMovies = () => {
 };
 
 export const fetchCharacter = (character) => {
+  console.log(window.location.href)
   return fetch(character)
   .then(res => res.json())
   .then ( character => {
@@ -13,7 +14,7 @@ export const fetchCharacter = (character) => {
   }
   
   const fetchSpecies = (url) => {
-  return fetch(...url)
+  return fetch(url)
     .then( res => res.json())
     .then(lifeForm => lifeForm.name)
 }
@@ -34,7 +35,7 @@ const fetchAllFilms = (allFilmUrls) => {
 }
 
 const fetchAllCharacterData = (speciesUrl, homeworldUrl, filmUrl) => {
-    let speciesData = fetchSpecies(speciesUrl);
+    let speciesData = fetchSpecies(...speciesUrl);
     let homeworldData = fetchHomeworld(homeworldUrl);
     let filmsData = fetchAllFilms(filmUrl);
 

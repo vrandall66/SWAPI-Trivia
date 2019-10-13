@@ -9,7 +9,6 @@ import MovieModal from "../MovieModal/MovieModal";
 import CharactersContainer from "../CharactersContainer/CharactersContainer";
 import UserProfile from "../UserProfile/UserProfile";
 import "./App.css";
-// import '../'
 
 ReactModal.setAppElement("#root");
 
@@ -30,9 +29,9 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    getAllMovies().then(moviedata =>
-      this.setState({ allMovies: moviedata.results })
-    );
+    getAllMovies()
+    .then(moviedata => this.setState({ allMovies: moviedata.results }))
+    .catch(err => console.log(err));
   };
 
   createMovieObjects = () => {
@@ -58,6 +57,10 @@ class App extends React.Component {
     this.createMovieObjects();
   };
 
+  resetMovieState = () => {
+    this.setState({ currentMovie: {} })
+  }
+
   hideFormModal = () => {
     this.setState({ showFormModal: false });
   };
@@ -74,6 +77,18 @@ class App extends React.Component {
     this.setState({ currentMovie: movie }, this.updatePlanetModalState());
   };
 
+  userLogoutReset = () => {
+    this.setState({
+      showFormModal: true,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      currentMovie: {} })
+  }
+
   render() {
     return (
       <div className="App">
@@ -84,6 +99,7 @@ class App extends React.Component {
           userRanking={this.state.ranking}
           userFavCharacters={this.state.favoriteCharacters}
           updateUserMenuState={this.updateUserMenuState}
+          userLogoutReset={this.userLogoutReset}
         />
         <ReactModal
           isOpen={this.state.showFormModal}
@@ -105,6 +121,7 @@ class App extends React.Component {
               updatePlanetModalState={this.updatePlanetModalState}
               updateCurrentMovie={this.updateCurrentMovie}
               className="MoviesContainer"
+              resetMovieState={this.resetMovieState}
               reactModal={
                 <ReactModal
                   isOpen={this.state.showPlanetModal}
