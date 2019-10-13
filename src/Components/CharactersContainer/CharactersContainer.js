@@ -4,8 +4,9 @@ import "./CharactersContainer.css";
 import { fetchCharacter } from "../../ApiCalls/apiCalls";
 
 class CharactersContainer extends React.Component {
-  constructor({ episode }) {
+  constructor({ episode, favoriteCharacter }) {
     super();
+    this.favoriteCharacter = favoriteCharacter
     this.state = {
       episode,
       characters: []
@@ -40,7 +41,7 @@ class CharactersContainer extends React.Component {
         <h1 className="CharactersContainer-h1">{this.state.episode.opening_crawl}</h1>
 
         <section className="CharactersContainer-section"> 
-        <Character characterInfo={this.state.characters} />
+          <Character characterInfo={this.state.characters} favoriteCharacter={this.favoriteCharacter}/>
         </section>
       </div>
     );

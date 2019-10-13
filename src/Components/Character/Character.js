@@ -1,12 +1,12 @@
 import React from "react";
 import "./Character.css";
 
-const Character = ({ characterInfo }) => {
+const Character = ({ characterInfo, favoriteCharacter }) => {
   return characterInfo.map( (character, i) => {
     const { name, species, homeworld, films, characterid } = character
     return (
       <div className="Character" key={characterid}>
-        <button type="button">Favorite</button>
+        <button type="button" onClick={() => favoriteCharacter(character)}>Favorite</button>
         <h1>{name}</h1>
         <p>{species}</p>
         <p>{homeworld.homeName}</p>
