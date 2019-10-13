@@ -2,12 +2,10 @@ import React from "react";
 import "./Character.css";
 
 const Character = ({ characterInfo }) => {
-  console.log('characterInfo', characterInfo)
-  return characterInfo.map( character => {
-    console.log('character', character)
+  return characterInfo.map( (character, i) => {
     const { name, species, homeworld, films } = character
     return (
-      <div className="Character">
+      <div className="Character" key={i}>
         <button type="button">Favorite</button>
         <h1>{name}</h1>
         <p>{species}</p>
