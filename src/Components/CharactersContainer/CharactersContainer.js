@@ -27,7 +27,8 @@ class CharactersContainer extends React.Component {
         name: character.name,
         species: character.response[0],
         homeworld: character.response[1],
-        films: character.response[2]
+        films: character.response[2],
+        characterid: parseInt(character.url.split('/').splice(5,1).pop())
       };
     });
     this.setState({ characters: characterCards });
