@@ -7,9 +7,10 @@ export const fetchCharacter = (character) => {
   return fetch(character)
   .then(res => res.json())
   .then ( character => {
-      const { name, homeworld, species, films } = character
+    const { name, homeworld, species, films, url} = character
+    console.log('apicalls url', url)
       return fetchAllCharacterData(species, homeworld, films)
-        .then(response => ({ name, response}))
+        .then(response => ({ name, response, url}))
     })
   }
   

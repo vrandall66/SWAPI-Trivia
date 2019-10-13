@@ -16,6 +16,7 @@ ReactModal.setAppElement("#root");
 class App extends React.Component {
   constructor() {
     super();
+    // this.favoriteCharacters = []
     this.state = {
       showFormModal: true,
       showPlanetModal: false,
@@ -50,6 +51,12 @@ class App extends React.Component {
     return movies.sort((a, b) => {
       return a.id - b.id;
     });
+  };
+
+  addFavoriteCharacter = (character) => {
+    const newArr = [...this.state.favoriteCharacters];
+    newArr.push(character);
+    this.setState({ favoriteCharacters: newArr});
   };
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
@@ -156,7 +163,7 @@ class App extends React.Component {
             );
             return (
               <>
-                <CharactersContainer episode={episode} />
+                <CharactersContainer episode={episode} addFavoriteCharacter={this.addFavoriteCharacter} />
               </>
             );
           }}
