@@ -52,12 +52,9 @@ class App extends React.Component {
     });
   };
 
-  favoriteCharacter = (character) => {
-    let { name, species, homeworld, films, characterid, favorite} = character;
-    console.log(favorite)
-    favorite = true;
+  addFavoriteCharacter = (character) => {
     const newArr = [...this.state.favoriteCharacters];
-    newArr.push({ name, species, homeworld, films, characterid, favorite });
+    newArr.push(character);
     this.setState({ favoriteCharacters: newArr});
   };
 
@@ -156,7 +153,7 @@ class App extends React.Component {
             );
             return (
               <>
-                <CharactersContainer episode={episode} favoriteCharacter={this.favoriteCharacter} />
+                <CharactersContainer episode={episode} addFavoriteCharacter={this.addFavoriteCharacter} />
               </>
             );
           }}

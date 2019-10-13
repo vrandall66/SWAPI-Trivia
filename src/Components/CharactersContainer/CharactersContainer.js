@@ -4,9 +4,9 @@ import "./CharactersContainer.css";
 import { fetchCharacter } from "../../ApiCalls/apiCalls";
 
 class CharactersContainer extends React.Component {
-  constructor({ episode, favoriteCharacter }) {
+  constructor({ episode, addFavoriteCharacter }) {
     super();
-    this.favoriteCharacter = favoriteCharacter
+    this.addFavoriteCharacter = addFavoriteCharacter
     this.state = {
       episode,
       characters: []
@@ -36,13 +36,20 @@ class CharactersContainer extends React.Component {
     this.setState({ characters: characterCards });
   };
 
+  updateCharacterFavorite = (favoriteCharacter) => {
+    const updatedCharacters = this.state.characters
+    const characterIndex = updatedCharacters.map(character => character.characterid).indexOf(favoriteCharacter.characterid)
+    updatedCharacters.splice(characterIndex, 1, favoriteCharacter)
+    this.setState({ characters: updatedCharacters })
+    this.addFavoriteCharacter(favoriteCharacter)
+  }
+
   render() {
     return (
       <div className="CharactersContainer">
         <h1 className="CharactersContainer-h1">{this.state.episode.opening_crawl}</h1>
-
         <section className="CharactersContainer-section"> 
-          <Character characterInfo={this.state.characters} favoriteCharacter={this.favoriteCharacter}/>
+          <Character characterInfo={this.state.characters} updateCharacterFavorite={this.updateCharacterFavorite}/>
         </section>
       </div>
     );
