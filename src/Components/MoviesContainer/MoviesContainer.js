@@ -6,7 +6,8 @@ const MoviesContainer = ({
   movies,
   updatePlanetModalState,
   reactModal,
-  updateCurrentMovie
+  updateCurrentMovie,
+  resetMovieState
 }) => {
   const sortMovies = movies => {
     return movies.sort((a, b) => {
@@ -33,6 +34,7 @@ const MoviesContainer = ({
         key={index}
         updatePlanetModalState={updatePlanetModalState}
         updateCurrentMovie={updateCurrentMovie}
+        resetMovieState={resetMovieState}
       />
     );
   });

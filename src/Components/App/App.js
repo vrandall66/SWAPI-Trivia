@@ -7,8 +7,8 @@ import ReactModal from "react-modal";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieModal from "../MovieModal/MovieModal";
 import CharactersContainer from "../CharactersContainer/CharactersContainer";
+import UserProfile from "../UserProfile/UserProfile";
 import "./App.css";
-// import '../'
 
 ReactModal.setAppElement("#root");
 
@@ -18,6 +18,7 @@ class App extends React.Component {
     this.state = {
       showFormModal: true,
       showPlanetModal: false,
+      showUserMenu: false,
       name: "",
       favQuote: "",
       ranking: "",
@@ -28,9 +29,9 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    getAllMovies().then(moviedata =>
-      this.setState({ allMovies: moviedata.results })
-    );
+    getAllMovies()
+    .then(moviedata => this.setState({ allMovies: moviedata.results }))
+    .catch(err => console.log(err));
   };
 
   createMovieObjects = () => {
@@ -53,9 +54,12 @@ class App extends React.Component {
   handleFormSubmit = ({ name, favQuote, ranking }) => {
     this.setState({ name, favQuote, ranking });
     this.hideFormModal();
-    // start building page
     this.createMovieObjects();
   };
+
+  resetMovieState = () => {
+    this.setState({ currentMovie: {} })
+  }
 
   hideFormModal = () => {
     this.setState({ showFormModal: false });
@@ -65,15 +69,38 @@ class App extends React.Component {
     this.setState({ showPlanetModal: !this.state.showPlanetModal });
   };
 
+  updateUserMenuState = () => {
+    this.setState({ showUserMenu: !this.state.showUserMenu });
+  }
+
   updateCurrentMovie = movie => {
     this.setState({ currentMovie: movie }, this.updatePlanetModalState());
-    // filter through state.movies
-    // to find the id of the movie that matches argument id
   };
+
+  userLogoutReset = () => {
+    this.setState({
+      showFormModal: true,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      currentMovie: {} })
+  }
 
   render() {
     return (
       <div className="App">
+        <UserProfile
+          isOpen={this.state.showUserMenu}
+          userName={this.state.name}
+          userFavQuote={this.state.favQuote}
+          userRanking={this.state.ranking}
+          userFavCharacters={this.state.favoriteCharacters}
+          updateUserMenuState={this.updateUserMenuState}
+          userLogoutReset={this.userLogoutReset}
+        />
         <ReactModal
           isOpen={this.state.showFormModal}
           onRequestClose={this.handleFormSubmit}
@@ -83,7 +110,6 @@ class App extends React.Component {
           overlayClassName="WelcomeFormOverlay"
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
-          {/* <Movies /> */}
         </ReactModal>
         <Route exact path="/" component={Home} />
         <Route
@@ -95,6 +121,7 @@ class App extends React.Component {
               updatePlanetModalState={this.updatePlanetModalState}
               updateCurrentMovie={this.updateCurrentMovie}
               className="MoviesContainer"
+              resetMovieState={this.resetMovieState}
               reactModal={
                 <ReactModal
                   isOpen={this.state.showPlanetModal}
