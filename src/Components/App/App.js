@@ -53,10 +53,12 @@ class App extends React.Component {
   };
 
   favoriteCharacter = (character) => {
+    const { name, species, homeworld, films, characterid, favorite} = character;
+    favorite = true;
     const newArr = [...this.state.favoriteCharacters];
-    newArr.push(character)
-    this.setState({ favoriteCharacters: newArr})
-  }
+    newArr.push(character);
+    this.setState({ favoriteCharacters: newArr});
+  };
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
     this.setState({ name, favQuote, ranking });
@@ -66,7 +68,7 @@ class App extends React.Component {
 
   resetMovieState = () => {
     this.setState({ currentMovie: {} })
-  }
+  };
 
   hideFormModal = () => {
     this.setState({ showFormModal: false });
@@ -78,7 +80,7 @@ class App extends React.Component {
 
   updateUserMenuState = () => {
     this.setState({ showUserMenu: !this.state.showUserMenu });
-  }
+  };
 
   updateCurrentMovie = movie => {
     this.setState({ currentMovie: movie }, this.updatePlanetModalState());
@@ -94,7 +96,7 @@ class App extends React.Component {
       ranking: "",
       favoriteCharacters: [],
       currentMovie: {} })
-  }
+  };
 
   render() {
     return (
