@@ -1,6 +1,7 @@
 import React from "react";
 import Character from "../Character/Character";
 import ScrollingText from "../ScrollingText/ScrollingText";
+import planetLoadingGif from "../../../src/images/PlanetLoading.gif";
 import "./CharactersContainer.css";
 import { fetchCharacter } from "../../ApiCalls/apiCalls";
 
@@ -39,7 +40,15 @@ class CharactersContainer extends React.Component {
       <div className="CharactersContainer">
         <ScrollingText episode={this.state.episode} />
         <section className="CharactersContainer-section">
-          <Character characterInfo={this.state.characters} />
+          {this.state.characters.length === 0 ? (
+            <img
+              src={planetLoadingGif}
+              alt="Loading GIF"
+              className="MoviesContainer-loading"
+            />
+          ) : (
+            <Character characterInfo={this.state.characters} />
+          )}
         </section>
       </div>
     );
