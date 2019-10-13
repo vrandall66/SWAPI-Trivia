@@ -53,10 +53,11 @@ class App extends React.Component {
   };
 
   favoriteCharacter = (character) => {
-    const { name, species, homeworld, films, characterid, favorite} = character;
+    let { name, species, homeworld, films, characterid, favorite} = character;
+    console.log(favorite)
     favorite = true;
     const newArr = [...this.state.favoriteCharacters];
-    newArr.push(character);
+    newArr.push({ name, species, homeworld, films, characterid, favorite });
     this.setState({ favoriteCharacters: newArr});
   };
 
