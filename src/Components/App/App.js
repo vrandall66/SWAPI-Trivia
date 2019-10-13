@@ -8,6 +8,7 @@ import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieModal from "../MovieModal/MovieModal";
 import CharactersContainer from "../CharactersContainer/CharactersContainer";
 import UserProfile from "../UserProfile/UserProfile";
+import imperialGif from "../../images/ImperialGif.gif";
 import "./App.css";
 
 ReactModal.setAppElement("#root");
@@ -30,8 +31,8 @@ class App extends React.Component {
 
   componentDidMount = () => {
     getAllMovies()
-    .then(moviedata => this.setState({ allMovies: moviedata.results }))
-    .catch(err => console.log(err));
+      .then(moviedata => this.setState({ allMovies: moviedata.results }))
+      .catch(err => console.log(err));
   };
 
   createMovieObjects = () => {
@@ -58,8 +59,8 @@ class App extends React.Component {
   };
 
   resetMovieState = () => {
-    this.setState({ currentMovie: {} })
-  }
+    this.setState({ currentMovie: {} });
+  };
 
   hideFormModal = () => {
     this.setState({ showFormModal: false });
@@ -71,7 +72,7 @@ class App extends React.Component {
 
   updateUserMenuState = () => {
     this.setState({ showUserMenu: !this.state.showUserMenu });
-  }
+  };
 
   updateCurrentMovie = movie => {
     this.setState({ currentMovie: movie }, this.updatePlanetModalState());
@@ -86,8 +87,9 @@ class App extends React.Component {
       favQuote: "",
       ranking: "",
       favoriteCharacters: [],
-      currentMovie: {} })
-  }
+      currentMovie: {}
+    });
+  };
 
   render() {
     return (
@@ -115,26 +117,34 @@ class App extends React.Component {
         <Route
           exact
           path="/movies"
-          render={() => (
-            <MoviesContainer
-              movies={this.state.allMovies}
-              updatePlanetModalState={this.updatePlanetModalState}
-              updateCurrentMovie={this.updateCurrentMovie}
-              className="MoviesContainer"
-              resetMovieState={this.resetMovieState}
-              reactModal={
-                <ReactModal
-                  isOpen={this.state.showPlanetModal}
-                  style={{ overlay: {}, content: {} }}
-                >
-                  <MovieModal
-                    currentMovie={this.state.currentMovie}
-                    updatePlanetModalState={this.updatePlanetModalState}
-                  />
-                </ReactModal>
-              }
-            />
-          )}
+          render={() =>
+            this.state.allMovies.length === 0 ? (
+              <img
+                src={imperialGif}
+                alt="Loading GIF"
+                className="MoviesContainer-loading"
+              />
+            ) : (
+              <MoviesContainer
+                movies={this.state.allMovies}
+                updatePlanetModalState={this.updatePlanetModalState}
+                updateCurrentMovie={this.updateCurrentMovie}
+                className="MoviesContainer"
+                resetMovieState={this.resetMovieState}
+                reactModal={
+                  <ReactModal
+                    isOpen={this.state.showPlanetModal}
+                    style={{ overlay: {}, content: {} }}
+                  >
+                    <MovieModal
+                      currentMovie={this.state.currentMovie}
+                      updatePlanetModalState={this.updatePlanetModalState}
+                    />
+                  </ReactModal>
+                }
+              />
+            )
+          }
         />
         <Route
           extact
@@ -157,3 +167,12 @@ class App extends React.Component {
 }
 
 export default App;
+
+// {
+//   this.state.ideas.length === 0 && (
+//     <img
+//       src="https://www.bluewaysireland.org/Style%20Library/img/loader.gif"
+//       alt="Loading GIF"
+//     />
+//   )
+// }
