@@ -7,7 +7,6 @@ const MoviePlanet = ({ movie, updateCurrentMovie, resetMovieState }) => {
       key={movie.id}
       className="planet"
       onClick={() => {
-        // resetMovieState();
         updateCurrentMovie(movie);
       }}
     >

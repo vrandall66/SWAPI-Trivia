@@ -1,5 +1,7 @@
 import React from "react";
 import Character from "../Character/Character";
+import ScrollingText from "../ScrollingText/ScrollingText";
+import planetLoadingGif from "../../../src/images/PlanetLoading.gif";
 import "./CharactersContainer.css";
 import { fetchCharacter } from "../../ApiCalls/apiCalls";
 
@@ -19,7 +21,7 @@ class CharactersContainer extends React.Component {
     });
     return Promise.all(fetchCharacters).then(characters =>
       this.createCharacterCard(characters)
-    )
+    );
   };
 
   createCharacterCard = characters => {
@@ -47,9 +49,17 @@ class CharactersContainer extends React.Component {
   render() {
     return (
       <div className="CharactersContainer">
-        <h1 className="CharactersContainer-h1">{this.state.episode.opening_crawl}</h1>
-        <section className="CharactersContainer-section"> 
-          <Character characterInfo={this.state.characters} updateCharacterFavorite={this.updateCharacterFavorite}/>
+        <ScrollingText episode={this.state.episode} />
+        <section className="CharactersContainer-section">
+          {this.state.characters.length === 0 ? (
+            <img
+              src={planetLoadingGif}
+              alt="Loading GIF"
+              className="MoviesContainer-loading"
+            />
+          ) : (
+              <Character characterInfo={this.state.characters} updateCharacterFavorite={this.updateCharacterFavorite} />
+          )}
         </section>
       </div>
     );
