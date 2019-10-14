@@ -59,15 +59,17 @@ class CharactersContainer extends React.Component {
         <ScrollingText episode={this.state.episode} />
         <section className="CharactersContainer-section">
           {this.state.characters.length === 0 ? (
-            <div className="BB8">
-              <section>
-                <h1>Loading Characters</h1>
-                <img
-                  src={BB8Loading}
-                  alt="Loading GIF"
-                  className="MoviesContainer-loading"
-                />
-              </section>
+            <div className="BB8--Parent-Container">
+              <div className="BB8">
+                <div className="BB8--loading">
+                  <h1>Loading Characters</h1>
+                  <img
+                    src={BB8Loading}
+                    alt="Loading GIF"
+                    className="MoviesContainer-loading"
+                  />
+                </div>
+              </div>
             </div>
           ) : (
             <Character

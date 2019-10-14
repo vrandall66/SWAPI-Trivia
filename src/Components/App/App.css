@@ -21,14 +21,12 @@
   color: #09d3ac;
 }
 
-.ReactModalPortal {
-  align-items: space-around;
-  display: flex;
-  justify-content: space-around;
-}
-
 .WelcomeFormModal {
   align-items: center;
+  background-image: url("../../images/ChooseWisely.png");
+  background-repeat: no-repeat;
+  background-position: left 50% bottom 50%;
+  background-size: 50%;
   display: flex;
   justify-content: space-around;
   height: 100vh;
@@ -38,7 +36,7 @@
 .WelcomeFormOverlay {
   align-items: center;
   background-color: rgba(128, 128, 128, 0.5);
-  color: #FFE81F;
+  color: #ffe81f;
   display: flex;
   font-size: 2em;
   justify-content: space-around;

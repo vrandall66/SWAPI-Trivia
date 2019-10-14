@@ -1,6 +1,13 @@
 import React from "react";
 import MoviePlanet from "../MoviePlanet/MoviePlanet";
 import "./MoviesContainer.css";
+import episodeI from "../../images/SWEpisode1.jpg";
+import episodeII from "../../images/SWEpisode2.jpg";
+import episodeIII from "../../images/SWEpisode3.jpg";
+import episodeIV from "../../images/SWEpisode4.jpg";
+import episodeV from "../../images/SWEpisode5.jpg";
+import episodeVI from "../../images/SWEpisode6.jpg";
+import episodeVII from "../../images/SWEpisode7.jpg";
 
 const MoviesContainer = ({
   movies,
@@ -27,6 +34,8 @@ const MoviesContainer = ({
     return sortMovies(planets);
   };
 
+  const movieImages = [episodeI, episodeII, episodeIII, episodeIV, episodeV, episodeVI, episodeVII];
+  
   const moviePlanets = createMovieObjects().map((movie, index) => {
     return (
       <MoviePlanet
@@ -41,7 +50,7 @@ const MoviesContainer = ({
 
   return (
     <div className="MoviesContainer">
-      <h1>Episodes</h1>
+      <h1 className="MoviesContainer__h1--Episodes">Episodes</h1>
       <div className="MoviesContainer-planets">{moviePlanets}</div>
       {reactModal}
     </div>

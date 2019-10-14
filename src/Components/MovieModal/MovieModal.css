@@ -1,0 +1,9 @@
+.MovieModalContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.MovieModal__btn--close {
+  height: 42px;
+  width: 42px;
+}

@@ -53,10 +53,10 @@ class App extends React.Component {
     });
   };
 
-  addFavoriteCharacter = (character) => {
+  addFavoriteCharacter = character => {
     const newArr = [...this.state.favoriteCharacters];
     newArr.push(character);
-    this.setState({ favoriteCharacters: newArr});
+    this.setState({ favoriteCharacters: newArr });
   };
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
@@ -163,7 +163,10 @@ class App extends React.Component {
             );
             return (
               <>
-                <CharactersContainer episode={episode} addFavoriteCharacter={this.addFavoriteCharacter} />
+                <CharactersContainer
+                  episode={episode}
+                  addFavoriteCharacter={this.addFavoriteCharacter}
+                />
               </>
             );
           }}
@@ -174,12 +177,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// {
-//   this.state.ideas.length === 0 && (
-//     <img
-//       src="https://www.bluewaysireland.org/Style%20Library/img/loader.gif"
-//       alt="Loading GIF"
-//     />
-//   )
-// }

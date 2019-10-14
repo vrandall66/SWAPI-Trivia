@@ -14,9 +14,14 @@
   width: 60%;
   height: 80vh;
   flex-wrap: wrap;
+  overflow: scroll;
 }
 
 .MoviesContainer-loading {
   height: 25%;
   width: 25%;
+}
+
+.MoviesContainer__h1--Episodes {
+  margin-right: 25%;
 }
