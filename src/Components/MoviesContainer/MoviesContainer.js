@@ -34,8 +34,16 @@ const MoviesContainer = ({
     return sortMovies(planets);
   };
 
-  const movieImages = [episodeI, episodeII, episodeIII, episodeIV, episodeV, episodeVI, episodeVII];
-  
+  const movieImages = [
+    episodeI,
+    episodeII,
+    episodeIII,
+    episodeIV,
+    episodeV,
+    episodeVI,
+    episodeVII
+  ];
+
   const moviePlanets = createMovieObjects().map((movie, index) => {
     return (
       <MoviePlanet

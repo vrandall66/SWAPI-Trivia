@@ -48,6 +48,7 @@ class App extends React.Component {
   };
 
   sortMovies = movies => {
+    console.log(movies)
     return movies.sort((a, b) => {
       return a.id - b.id;
     });
