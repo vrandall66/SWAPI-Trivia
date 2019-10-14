@@ -56,9 +56,19 @@ class App extends React.Component {
 
   addFavoriteCharacter = character => {
     const newArr = [...this.state.favoriteCharacters];
-    newArr.push(character);
-    this.setState({ favoriteCharacters: newArr });
+    if (!character.favorite){
+      this.removeFavorite(character, newArr)
+    } else {
+      newArr.push(character);
+      this.setState({ favoriteCharacters: newArr});
+    }
   };
+
+  removeFavorite = (character, newArr) => {
+    const characterIndex = newArr.map(character => character.characterid).indexOf(character.characterid)
+    newArr.splice(characterIndex, 1)
+    this.setState({ favoriteCharacters: newArr });
+    }
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
     this.setState({ name, favQuote, ranking });
