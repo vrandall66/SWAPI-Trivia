@@ -1,16 +1,17 @@
 import React from "react";
 import "./MoviePlanet.css";
 
-const MoviePlanet = ({ movie, updateCurrentMovie, resetMovieState }) => {
+const MoviePlanet = ({ movie, updateCurrentMovie, resetMovieState, className }) => {
+  let convertToRomanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
   return (
     <div
       key={movie.id}
-      className="planet"
+      className={`planetImage planet${className}`}
       onClick={() => {
         updateCurrentMovie(movie);
       }}
     >
-      <h1>{movie.id}</h1>
+      <h1>{convertToRomanNumerals[movie.id - 1]}</h1>
     </div>
   );
 };
