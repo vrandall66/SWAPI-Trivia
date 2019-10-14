@@ -46,7 +46,7 @@ class Form extends React.Component {
           onChange={this.handleChange}
           value={this.state.favQuote}
         />
-        <label htmlFor="ranking">Select Ranking</label>
+        <label htmlFor="ranking">Select Fan Ranking</label>
         <select id="ranking" name="ranking" onChange={this.handleChange}>
           <option value="novice">Novice</option>
           <option value="intermediate">Intermediate</option>

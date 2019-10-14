@@ -8,7 +8,7 @@ import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieModal from "../MovieModal/MovieModal";
 import CharactersContainer from "../CharactersContainer/CharactersContainer";
 import UserProfile from "../UserProfile/UserProfile";
-import imperialGif from "../../images/ImperialGif.gif";
+import BB8Loading from "../../images/BB8Loading.gif";
 import "./App.css";
 
 ReactModal.setAppElement("#root");
@@ -127,7 +127,7 @@ class App extends React.Component {
           render={() =>
             this.state.allMovies.length === 0 ? (
               <img
-                src={imperialGif}
+                src={BB8Loading}
                 alt="Loading GIF"
                 className="MoviesContainer-loading"
               />

@@ -1,13 +1,19 @@
 .MoviesContainer {
+  align-items: flex-end;
   color: #ffe81f;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   height: 100vh;
 }
 
 .MoviesContainer-planets {
-  align-items: flex-end;
+  align-content: space-around;
+  justify-content: space-evenly;
   display: flex;
+  width: 60%;
+  height: 80vh;
+  flex-wrap: wrap;
 }
 
 .MoviesContainer-loading {

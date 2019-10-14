@@ -1,14 +1,14 @@
 import React from "react";
 import Character from "../Character/Character";
 import ScrollingText from "../ScrollingText/ScrollingText";
-import planetLoadingGif from "../../../src/images/PlanetLoading.gif";
+import BB8Loading from "../../../src/images/BB8Loading.gif";
 import "./CharactersContainer.css";
 import { fetchCharacter } from "../../ApiCalls/apiCalls";
 
 class CharactersContainer extends React.Component {
   constructor({ episode, addFavoriteCharacter }) {
     super();
-    this.addFavoriteCharacter = addFavoriteCharacter
+    this.addFavoriteCharacter = addFavoriteCharacter;
     this.state = {
       episode,
       characters: []
@@ -31,20 +31,27 @@ class CharactersContainer extends React.Component {
         species: character.response[0],
         homeworld: character.response[1],
         films: character.response[2],
-        characterid: parseInt(character.url.split('/').splice(5,1).pop()),
+        characterid: parseInt(
+          character.url
+            .split("/")
+            .splice(5, 1)
+            .pop()
+        ),
         favorite: false
       };
     });
     this.setState({ characters: characterCards });
   };
 
-  updateCharacterFavorite = (favoriteCharacter) => {
-    const updatedCharacters = this.state.characters
-    const characterIndex = updatedCharacters.map(character => character.characterid).indexOf(favoriteCharacter.characterid)
-    updatedCharacters.splice(characterIndex, 1, favoriteCharacter)
-    this.setState({ characters: updatedCharacters })
-    this.addFavoriteCharacter(favoriteCharacter)
-  }
+  updateCharacterFavorite = favoriteCharacter => {
+    const updatedCharacters = this.state.characters;
+    const characterIndex = updatedCharacters
+      .map(character => character.characterid)
+      .indexOf(favoriteCharacter.characterid);
+    updatedCharacters.splice(characterIndex, 1, favoriteCharacter);
+    this.setState({ characters: updatedCharacters });
+    this.addFavoriteCharacter(favoriteCharacter);
+  };
 
   render() {
     return (
@@ -52,13 +59,21 @@ class CharactersContainer extends React.Component {
         <ScrollingText episode={this.state.episode} />
         <section className="CharactersContainer-section">
           {this.state.characters.length === 0 ? (
-            <img
-              src={planetLoadingGif}
-              alt="Loading GIF"
-              className="MoviesContainer-loading"
-            />
+            <div className="BB8">
+              <section>
+                <h1>Loading Characters</h1>
+                <img
+                  src={BB8Loading}
+                  alt="Loading GIF"
+                  className="MoviesContainer-loading"
+                />
+              </section>
+            </div>
           ) : (
-              <Character characterInfo={this.state.characters} updateCharacterFavorite={this.updateCharacterFavorite} />
+            <Character
+              characterInfo={this.state.characters}
+              updateCharacterFavorite={this.updateCharacterFavorite}
+            />
           )}
         </section>
       </div>

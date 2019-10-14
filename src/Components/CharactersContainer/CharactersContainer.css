@@ -1,5 +1,5 @@
 .CharactersContainer {
-  color: #FFE81F;
+  color: #ffe81f;
   display: flex;
   flex-direction: column;
 }
@@ -14,7 +14,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  height: 65vh;
+  height: 70vh;
   overflow: scroll;
   width: 100%;
+}
+
+.MoviesContainer-loading {
+  height: 450px;
+  width: 600px;
+}
+
+.BB8 {
+  display: flex;
 }
