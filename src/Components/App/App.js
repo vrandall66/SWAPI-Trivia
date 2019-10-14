@@ -7,7 +7,7 @@ import ReactModal from "react-modal";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieModal from "../MovieModal/MovieModal";
 import CharactersContainer from "../CharactersContainer/CharactersContainer";
-import FavoriteCharacters from "../FavoriteCharacters/FavoriteCharacters"
+import FavoriteCharacters from "../FavoriteCharacters/FavoriteCharacters";
 import UserProfile from "../UserProfile/UserProfile";
 import BB8Loading from "../../images/BB8Loading.gif";
 import "./App.css";
@@ -49,7 +49,7 @@ class App extends React.Component {
   };
 
   sortMovies = movies => {
-    console.log(movies)
+    console.log(movies);
     return movies.sort((a, b) => {
       return a.id - b.id;
     });
@@ -57,23 +57,27 @@ class App extends React.Component {
 
   addFavoriteCharacter = character => {
     const newArr = [...this.state.favoriteCharacters];
-    if (!character.favorite){
-      this.removeFavorite(character, newArr)
+    if (!character.favorite) {
+      this.removeFavorite(character, newArr);
     } else {
       newArr.push(character);
-      this.setState({ favoriteCharacters: newArr});
+      this.setState({ favoriteCharacters: newArr });
     }
   };
 
   removeFavorite = (character, newArr) => {
-    const characterIndex = newArr.map(character => character.characterid).indexOf(character.characterid)
-    newArr.splice(characterIndex, 1)
+    const characterIndex = newArr
+      .map(character => character.characterid)
+      .indexOf(character.characterid);
+    newArr.splice(characterIndex, 1);
     this.setState({ favoriteCharacters: newArr });
-  }
+  };
 
-  checkFavoriteStatus = (id) => {
-    return this.state.favoriteCharacters.map(character => character.characterid).includes(id)
-  }
+  checkFavoriteStatus = id => {
+    return this.state.favoriteCharacters
+      .map(character => character.characterid)
+      .includes(id);
+  };
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
     this.setState({ name, favQuote, ranking });
@@ -136,7 +140,25 @@ class App extends React.Component {
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
         </ReactModal>
-        <Route exact path="/" component={Home} />>
+        <Route exact path="/" component={Home} />
+        <ReactModal
+          isOpen={this.state.showPlanetModal}
+          style={{ overlay: {
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(255, 255, 255, 0.75)'
+          }, content: {} }}
+          className="MovieModal"
+          overlayClassName="MovieModalOverlay"
+        >
+          <MovieModal
+            currentMovie={this.state.currentMovie}
+            updatePlanetModalState={this.updatePlanetModalState}
+          />
+        </ReactModal>
         <Route
           exact
           path="/movies"
@@ -154,23 +176,15 @@ class App extends React.Component {
                 updateCurrentMovie={this.updateCurrentMovie}
                 className="MoviesContainer"
                 resetMovieState={this.resetMovieState}
-                reactModal={
-                  <ReactModal
-                    isOpen={this.state.showPlanetModal}
-                    style={{ overlay: {}, content: {} }}
-                  >
-                    <MovieModal
-                      currentMovie={this.state.currentMovie}
-                      updatePlanetModalState={this.updatePlanetModalState}
-                    />
-                  </ReactModal>
-                }
               />
             )
           }
         />
-        <Route exact path="/favorite-characters" component={FavoriteCharacters} >
-          <FavoriteCharacters characterInfo={this.state.favoriteCharacters} addFavoriteCharacter={this.addFavoriteCharacter} />
+        <Route exact path="/favorite-characters" component={FavoriteCharacters}>
+          <FavoriteCharacters
+            characterInfo={this.state.favoriteCharacters}
+            addFavoriteCharacter={this.addFavoriteCharacter}
+          />
         </Route>
         <Route
           extact
@@ -182,7 +196,11 @@ class App extends React.Component {
             );
             return (
               <>
-                <CharactersContainer episode={episode} addFavoriteCharacter={this.addFavoriteCharacter} checkFavoriteStatus={this.checkFavoriteStatus} />
+                <CharactersContainer
+                  episode={episode}
+                  addFavoriteCharacter={this.addFavoriteCharacter}
+                  checkFavoriteStatus={this.checkFavoriteStatus}
+                />
               </>
             );
           }}
