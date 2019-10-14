@@ -3,12 +3,12 @@ import { shallow } from "enzyme";
 import UserProfile from "./UserProfile";
 
 describe("UserProfile", () => {
-  let wrapper
-  let isOpen = false
-  let name = "Matt"
-  let userFavQuote = "I know"
-  let userRanking = "Intermediate"
-  let userFavCharacters = []
+  let wrapper;
+  let isOpen = false;
+  let name = "Matt";
+  let userFavQuote = "I know";
+  let userRanking = "Intermediate";
+  let userFavCharacters = [];
   let updateUserMenuState = jest.fn();
   let userLogoutReset = jest.fn();
 
@@ -28,5 +28,5 @@ describe("UserProfile", () => {
 
   it("should match the snapshot", () => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 });
