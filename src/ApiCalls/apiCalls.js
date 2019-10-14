@@ -13,9 +13,13 @@ export const fetchCharacter = (character) => {
   }
   
   const fetchSpecies = (url) => {
+    if (!url) {
+      return 'NO SPECIES AVAILABLE'
+    } else {
   return fetch(url)
     .then( res => res.json())
     .then(lifeForm => lifeForm.name)
+  }
 }
 
 const fetchHomeworld = (url) => {
