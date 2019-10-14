@@ -26,9 +26,12 @@ const UserProfile = ({
       </div>
       {isOpen ? (
         <div>
+          <Link to='/favorite-characters'>
+            <button type="button" className="UserProfile__button--sign-out"> View Favorite Characters</button>
+          </Link>
           <h5>{userFavQuote}</h5>
           <h5>{userRanking}</h5>
-          <h5>{userFavCharacters}</h5>
+          {/* <h5>{[userFavCharacters]}</h5> */}
           <Link to="/">
             <button
               type="button"

@@ -18,7 +18,7 @@ const Character = ({ characterInfo, updateCharacterFavorite }) => {
         <input 
           className='favoriteIcon'
           type='image' 
-          alt='not favorite' 
+          alt='favoriteIcon' 
           src={favorite ? favorited : notFavorited} 
           onClick={() => updateCharacterFavorite(favoriteCharacter(character))}
         />

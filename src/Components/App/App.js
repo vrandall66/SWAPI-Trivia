@@ -7,6 +7,7 @@ import ReactModal from "react-modal";
 import MoviesContainer from "../MoviesContainer/MoviesContainer";
 import MovieModal from "../MovieModal/MovieModal";
 import CharactersContainer from "../CharactersContainer/CharactersContainer";
+import FavoriteCharacters from "../FavoriteCharacters/FavoriteCharacters"
 import UserProfile from "../UserProfile/UserProfile";
 import imperialGif from "../../images/ImperialGif.gif";
 import "./App.css";
@@ -67,7 +68,11 @@ class App extends React.Component {
     const characterIndex = newArr.map(character => character.characterid).indexOf(character.characterid)
     newArr.splice(characterIndex, 1)
     this.setState({ favoriteCharacters: newArr });
-    }
+  }
+
+  checkFavoriteStatus = (id) => {
+    return this.state.favoriteCharacters.map(character => character.characterid).includes(id)
+  }
 
   handleFormSubmit = ({ name, favQuote, ranking }) => {
     this.setState({ name, favQuote, ranking });
@@ -116,7 +121,7 @@ class App extends React.Component {
           userName={this.state.name}
           userFavQuote={this.state.favQuote}
           userRanking={this.state.ranking}
-          userFavCharacters={this.state.favoriteCharacters}
+          // userFavCharacters={this.state.favoriteCharacters}
           updateUserMenuState={this.updateUserMenuState}
           userLogoutReset={this.userLogoutReset}
         />
@@ -130,7 +135,7 @@ class App extends React.Component {
         >
           <Form handleFormSubmit={this.handleFormSubmit} />
         </ReactModal>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Home} />>
         <Route
           exact
           path="/movies"
@@ -163,6 +168,9 @@ class App extends React.Component {
             )
           }
         />
+        <Route exact path="/favorite-characters" component={FavoriteCharacters} >
+          <FavoriteCharacters characterInfo={this.state.favoriteCharacters} addFavoriteCharacter={this.addFavoriteCharacter} />
+        </Route>
         <Route
           extact
           path="/movies/:id"
@@ -173,7 +181,7 @@ class App extends React.Component {
             );
             return (
               <>
-                <CharactersContainer episode={episode} addFavoriteCharacter={this.addFavoriteCharacter} />
+                <CharactersContainer episode={episode} addFavoriteCharacter={this.addFavoriteCharacter} checkFavoriteStatus={this.checkFavoriteStatus} />
               </>
             );
           }}
