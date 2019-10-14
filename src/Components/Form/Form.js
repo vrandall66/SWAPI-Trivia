@@ -28,17 +28,23 @@ class Form extends React.Component {
   render() {
     return (
       <form className="Form">
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name" className="UserModalFormLabel">
+          Name
+        </label>
         <input
+          className="UserModalFormInput"
           id="name"
           type="text"
           name="name"
-          placeholder="name"
+          placeholder="Name"
           onChange={this.handleChange}
           value={this.state.name}
         />
-        <label htmlFor="favQuote">Favorite Quote</label>
+        <label htmlFor="favQuote" className="UserModalFormLabel">
+          Favorite Quote
+        </label>
         <input
+          className="UserModalFormInput"
           id="favQuote"
           type="text"
           name="favQuote"
@@ -46,14 +52,25 @@ class Form extends React.Component {
           onChange={this.handleChange}
           value={this.state.favQuote}
         />
-        <label htmlFor="ranking">Select Ranking</label>
-        <select id="ranking" name="ranking" onChange={this.handleChange}>
+        <label htmlFor="ranking" className="UserModalFormLabel">
+          Select Fan Ranking
+        </label>
+        <select
+          id="ranking"
+          name="ranking"
+          className="UserModalFormSelect"
+          onChange={this.handleChange}
+        >
           <option value="novice">Novice</option>
           <option value="intermediate">Intermediate</option>
           <option value="expert">Expert</option>
         </select>
         <Link to="/movies">
-          <button type="button" onClick={() => this.handleSubmit()}>
+          <button
+            type="button"
+            className="UserModalFormBtn"
+            onClick={() => this.handleSubmit()}
+          >
             Submit
           </button>
         </Link>

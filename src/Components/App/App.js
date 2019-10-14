@@ -9,7 +9,7 @@ import MovieModal from "../MovieModal/MovieModal";
 import CharactersContainer from "../CharactersContainer/CharactersContainer";
 import FavoriteCharacters from "../FavoriteCharacters/FavoriteCharacters"
 import UserProfile from "../UserProfile/UserProfile";
-import imperialGif from "../../images/ImperialGif.gif";
+import BB8Loading from "../../images/BB8Loading.gif";
 import "./App.css";
 
 ReactModal.setAppElement("#root");
@@ -49,12 +49,13 @@ class App extends React.Component {
   };
 
   sortMovies = movies => {
+    console.log(movies)
     return movies.sort((a, b) => {
       return a.id - b.id;
     });
   };
 
-  addFavoriteCharacter = (character) => {
+  addFavoriteCharacter = character => {
     const newArr = [...this.state.favoriteCharacters];
     if (!character.favorite){
       this.removeFavorite(character, newArr)
@@ -142,7 +143,7 @@ class App extends React.Component {
           render={() =>
             this.state.allMovies.length === 0 ? (
               <img
-                src={imperialGif}
+                src={BB8Loading}
                 alt="Loading GIF"
                 className="MoviesContainer-loading"
               />
@@ -192,12 +193,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-// {
-//   this.state.ideas.length === 0 && (
-//     <img
-//       src="https://www.bluewaysireland.org/Style%20Library/img/loader.gif"
-//       alt="Loading GIF"
-//     />
-//   )
-// }

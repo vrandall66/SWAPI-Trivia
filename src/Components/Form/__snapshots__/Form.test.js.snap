@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should match the snapshot 1`] = `
+<form
+  className="Form"
+>
+  <label
+    className="UserModalFormLabel"
+    htmlFor="name"
+  >
+    Name
+  </label>
+  <input
+    className="UserModalFormInput"
+    id="name"
+    name="name"
+    onChange={[Function]}
+    placeholder="Name"
+    type="text"
+    value=""
+  />
+  <label
+    className="UserModalFormLabel"
+    htmlFor="favQuote"
+  >
+    Favorite Quote
+  </label>
+  <input
+    className="UserModalFormInput"
+    id="favQuote"
+    name="favQuote"
+    onChange={[Function]}
+    placeholder="Favorite quote from the films"
+    type="text"
+    value=""
+  />
+  <label
+    className="UserModalFormLabel"
+    htmlFor="ranking"
+  >
+    Select Fan Ranking
+  </label>
+  <select
+    className="UserModalFormSelect"
+    id="ranking"
+    name="ranking"
+    onChange={[Function]}
+  >
+    <option
+      value="novice"
+    >
+      Novice
+    </option>
+    <option
+      value="intermediate"
+    >
+      Intermediate
+    </option>
+    <option
+      value="expert"
+    >
+      Expert
+    </option>
+  </select>
+  <Link
+    to="/movies"
+  >
+    <button
+      className="UserModalFormBtn"
+      onClick={[Function]}
+      type="button"
+    >
+      Submit
+    </button>
+  </Link>
+</form>
+`;

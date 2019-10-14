@@ -1,7 +1,7 @@
 import React from "react";
 import Character from "../Character/Character";
 import ScrollingText from "../ScrollingText/ScrollingText";
-import planetLoadingGif from "../../../src/images/PlanetLoading.gif";
+import BB8Loading from "../../../src/images/BB8Loading.gif";
 import "./CharactersContainer.css";
 import { fetchCharacter } from "../../ApiCalls/apiCalls";
 
@@ -39,13 +39,15 @@ class CharactersContainer extends React.Component {
     this.setState({ characters: characterCards });
   };
 
-  updateCharacterFavorite = (favoriteCharacter) => {
-    const updatedCharacters = this.state.characters
-    const characterIndex = updatedCharacters.map(character => character.characterid).indexOf(favoriteCharacter.characterid)
-    updatedCharacters.splice(characterIndex, 1, favoriteCharacter)
-    this.setState({ characters: updatedCharacters })
-    this.addFavoriteCharacter(favoriteCharacter)
-  }
+  updateCharacterFavorite = favoriteCharacter => {
+    const updatedCharacters = this.state.characters;
+    const characterIndex = updatedCharacters
+      .map(character => character.characterid)
+      .indexOf(favoriteCharacter.characterid);
+    updatedCharacters.splice(characterIndex, 1, favoriteCharacter);
+    this.setState({ characters: updatedCharacters });
+    this.addFavoriteCharacter(favoriteCharacter);
+  };
 
   render() {
     return (
@@ -53,13 +55,23 @@ class CharactersContainer extends React.Component {
         <ScrollingText episode={this.state.episode} />
         <section className="CharactersContainer-section">
           {this.state.characters.length === 0 ? (
-            <img
-              src={planetLoadingGif}
-              alt="Loading GIF"
-              className="MoviesContainer-loading"
-            />
+            <div className="BB8--Parent-Container">
+              <div className="BB8">
+                <div className="BB8--loading">
+                  <h1>Loading Characters</h1>
+                  <img
+                    src={BB8Loading}
+                    alt="Loading GIF"
+                    className="MoviesContainer-loading"
+                  />
+                </div>
+              </div>
+            </div>
           ) : (
-              <Character characterInfo={this.state.characters} updateCharacterFavorite={this.updateCharacterFavorite} />
+            <Character
+              characterInfo={this.state.characters}
+              updateCharacterFavorite={this.updateCharacterFavorite}
+            />
           )}
         </section>
       </div>

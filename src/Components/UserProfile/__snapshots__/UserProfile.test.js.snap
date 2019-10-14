@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserProfile should match the snapshot 1`] = `
+<div
+  className="UserProfile"
+>
+  <div
+    className="UserProfile--userMenu"
+  >
+    <h1
+      className="UserProfile--userName"
+    >
+      Matt
+    </h1>
+    <input
+      alt="User Profile Dropdown Menu Icon"
+      className="UserProfile__hamburger-icon"
+      onClick={[MockFunction]}
+      src="HamburgerIcon.png"
+      type="image"
+    />
+  </div>
+</div>
+`;
