@@ -3,12 +3,10 @@ export const getAllMovies = () => {
 };
 
 export const fetchCharacter = (character) => {
-  console.log(window.location.href)
   return fetch(character)
   .then(res => res.json())
   .then ( character => {
     const { name, homeworld, species, films, url} = character
-    console.log('apicalls url', url)
       return fetchAllCharacterData(species, homeworld, films)
         .then(response => ({ name, response, url}))
     })
