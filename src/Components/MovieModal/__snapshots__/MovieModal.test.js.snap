@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieModal should match the snapshot 1`] = `
+<div
+  className="MovieModalContainer"
+>
+  <input
+    alt="Crossed lightsabers - close"
+    className="MovieModal__btn--close"
+    onClick={[MockFunction]}
+    src="LightsaberCross.png"
+    type="image"
+  />
+  <h1
+    className="MovieModal__h1"
+  />
+  <h3
+    className="MovieModal__h3"
+  >
+    1
+  </h3>
+  <h5
+    className="MovieModal__h5"
+  />
+  <Link
+    to="/movies/1"
+  >
+    <button
+      className="MovieModal__btn--characters"
+      onClick={[MockFunction]}
+      type="button"
+    >
+      View Characters
+    </button>
+  </Link>
+</div>
+`;

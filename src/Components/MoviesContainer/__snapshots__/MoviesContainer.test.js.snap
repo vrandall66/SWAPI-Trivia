@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesContainer should match the snapshot() 1`] = `
+<div
+  className="MoviesContainer"
+>
+  <h1
+    className="MoviesContainer__h1--Episodes"
+  >
+    Episodes
+  </h1>
+  <div
+    className="MoviesContainer-planets"
+  />
+  <Modal
+    ariaHideApp={true}
+    bodyOpenClassName="ReactModal__Body--open"
+    closeTimeoutMS={0}
+    isOpen={false}
+    parentSelector={[Function]}
+    portalClassName="ReactModalPortal"
+    role="dialog"
+    shouldCloseOnEsc={true}
+    shouldCloseOnOverlayClick={true}
+    shouldFocusAfterRender={true}
+    shouldReturnFocusAfterClose={true}
+    style={
+      Object {
+        "content": Object {},
+        "overlay": Object {},
+      }
+    }
+  >
+    <MovieModal
+      currentMovie={Object {}}
+      updatePlanetModalState={[MockFunction]}
+    />
+  </Modal>
+</div>
+`;
