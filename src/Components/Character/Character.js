@@ -1,10 +1,11 @@
 import React from "react";
 import "./Character.css";
 import notFavorited from '../../images/not-favorite-ds.svg'
+import favorited from '../../images/favorited-ds.svg'
 
 const Character = ({ characterInfo, updateCharacterFavorite }) => {
   return characterInfo.map( (character) => {
-    const { name, species, homeworld, films, characterid } = character
+    const { name, species, homeworld, films, characterid, favorite } = character
 
     const favoriteCharacter = (character) => {
       let { name, species, homeworld, films, characterid, favorite } = character;
@@ -15,9 +16,10 @@ const Character = ({ characterInfo, updateCharacterFavorite }) => {
     return (
       <div className="Character" key={characterid}>
         <input 
+          className='favoriteIcon'
           type='image' 
           alt='not favorite' 
-          src={notFavorited} 
+          src={favorite ? favorited : notFavorited} 
           onClick={() => updateCharacterFavorite(favoriteCharacter(character))}
         />
         <h1>{name}</h1>
