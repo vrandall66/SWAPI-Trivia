@@ -6,9 +6,10 @@ import "./CharactersContainer.css";
 import { fetchCharacter } from "../../ApiCalls/apiCalls";
 
 class CharactersContainer extends React.Component {
-  constructor({ episode, addFavoriteCharacter }) {
+  constructor({ episode, addFavoriteCharacter, checkFavoriteStatus }) {
     super();
     this.addFavoriteCharacter = addFavoriteCharacter;
+    this.checkFavoriteStatus = checkFavoriteStatus;
     this.state = {
       episode,
       characters: []
@@ -31,13 +32,8 @@ class CharactersContainer extends React.Component {
         species: character.response[0],
         homeworld: character.response[1],
         films: character.response[2],
-        characterid: parseInt(
-          character.url
-            .split("/")
-            .splice(5, 1)
-            .pop()
-        ),
-        favorite: false
+        characterid: parseInt(character.url.split('/').splice(5,1).pop()),
+        favorite: this.checkFavoriteStatus(parseInt(character.url.split('/').splice(5, 1).pop()))
       };
     });
     this.setState({ characters: characterCards });
