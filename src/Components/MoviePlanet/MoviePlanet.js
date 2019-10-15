@@ -11,7 +11,7 @@ const MoviePlanet = ({ movie, updateCurrentMovie, resetMovieState, className }) 
         updateCurrentMovie(movie);
       }}
     >
-      <h1>{convertToRomanNumerals[movie.id - 1]}</h1>
+      <h1 className='planetNumber'>{convertToRomanNumerals[movie.id - 1]}</h1>
     </div>
   );
 };
