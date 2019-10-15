@@ -5,7 +5,6 @@ import favorited from '../../images/favorited-ds.svg'
 
 const Character = ({ characterInfo, updateCharacterFavorite }) => {
   return characterInfo.map( (character) => {
-    console.log(character)
     const { name, species, homeworld, films, characterid, favorite } = character
     const favoriteCharacter = character => {
       let {
@@ -19,7 +18,6 @@ const Character = ({ characterInfo, updateCharacterFavorite }) => {
       favorite = !favorite;
       return { name, species, homeworld, films, characterid, favorite };
     };
-
     return (
       <div className="Character" key={characterid}>
         <input 

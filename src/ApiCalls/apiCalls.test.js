@@ -15,23 +15,35 @@ describe("getAllMovies", () => {
     results: [{}, {}, {}, {}, {}, {}, {}]
   };
 
-  beforeEach(() => {
+  it("should call fetch with the correct URL", () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
         json: () => Promise.resolve(mockResponse)
       });
     });
-  });
-
-  it("should call fetch with the correct URL", () => {
     getAllMovies();
 
     expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/films/");
   });
 
   it("Should return an object with 7 movie objects", () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockResponse)
+      });
+    });
     getAllMovies().then(movies => expect(movies).toEqual(mockResponse));
+  });
+
+  it("should return catch error if promise rejects", () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        ok: false
+      });
+    });
+    getAllMovies().catch(e => expect(e).toMatch("error"));
   });
 });
 
@@ -102,6 +114,15 @@ describe("fetchCharacter", () => {
   it("Should return an object with character info", () => {
     expect(fetchCharacter(newCharacter)).resolves.toEqual(mockResponse);
   });
+
+  it("should return catch error if promise rejects", () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        ok: false
+      });
+    });
+    fetchCharacter().catch(e => expect(e).toMatch("error"));
+  });
 });
 
 describe("fetchSpecies", () => {
@@ -144,8 +165,19 @@ describe("fetchSpecies", () => {
     fetchSpecies(noSpecies.species);
 
     expect(fetchSpecies(noSpecies.species)).toEqual(
-      Promise.resolve("NO SPECIES AVAILABLE")
+      Promise.reject({
+        ok: false
+      })
     );
+  });
+
+  it("should return catch error if promise rejects", () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        ok: false
+      });
+    });
+    fetchSpecies(newCharacter.species).catch(e => expect(e).toMatch("error"));
   });
 });
 
@@ -169,10 +201,21 @@ describe("fetchHomeworld", () => {
   });
 
   it("should fetch homeworld data", () => {
-    fetchHomeworld(newCharacter.homeworld)
+    fetchHomeworld(newCharacter.homeworld);
 
-    expect(fetchHomeworld(newCharacter.homeworld)).toEqual(Promise.resolve())
-  })
+    expect(fetchHomeworld(newCharacter.homeworld)).toEqual(Promise.resolve());
+  });
+
+  it("should return catch error if promise rejects", () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        ok: false
+      });
+    });
+    fetchHomeworld(newCharacter.homeworld).catch(e =>
+      expect(e).toMatch("error")
+    );
+  });
 });
 
 describe("fetchAllFilms", () => {
@@ -192,11 +235,64 @@ describe("fetchAllFilms", () => {
       ],
       url: "https://swapi.co/api/people/1/"
     };
-  })
+  });
 
   it("should fetch all films the character has been in", () => {
-    fetchAllFilms(newCharacter.films)
+    fetchAllFilms(newCharacter.films);
 
-    expect(fetchAllFilms(newCharacter.films)).toEqual(Promise.resolve())
-  })
-})
+    expect(fetchAllFilms(newCharacter.films)).toEqual(Promise.resolve());
+  });
+
+  it("should return catch error if promise rejects", () => {
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.reject({
+        ok: false
+      });
+    });
+    fetchAllFilms(newCharacter.films).catch(e => expect(e).toMatch("error"));
+  });
+});
+
+describe("fetchAllCharacterData", () => {
+  let newCharacter;
+
+  beforeEach(() => {
+    newCharacter = {
+      name: "Luke Skywalker",
+      homeworld: "https://swapi.co/api/planets/1/",
+      species: ["https://swapi.co/api/species/1/"],
+      films: [
+        "https://swapi.co/api/films/2/",
+        "https://swapi.co/api/films/6/",
+        "https://swapi.co/api/films/3/",
+        "https://swapi.co/api/films/1/",
+        "https://swapi.co/api/films/7/"
+      ],
+      url: "https://swapi.co/api/people/1/"
+    };
+  });
+
+  it("should fetch all character data from homeworld, species, and films urls", () => {
+    fetchAllCharacterData(
+      newCharacter.species,
+      newCharacter.homeworld,
+      newCharacter.films
+    );
+    console.log("species", newCharacter.species);
+    console.log("homeworld", newCharacter.homeworld);
+    console.log("films", newCharacter.films);
+
+    expect(fetchSpecies(newCharacter.species)).toEqual(
+      Promise.resolve("Human")
+    );
+    expect(fetchHomeworld(newCharacter.homeworld)).toEqual(Promise.resolve());
+    expect(fetchAllFilms(newCharacter.films)).toEqual(Promise.resolve());
+    expect(
+      fetchAllCharacterData(
+        newCharacter.species,
+        newCharacter.homeworld,
+        newCharacter.filmUrl
+      )
+    ).toEqual(Promise.resolve());
+  });
+});

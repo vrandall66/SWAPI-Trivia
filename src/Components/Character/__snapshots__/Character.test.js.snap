@@ -1,3 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Character should match the wrapper 1`] = `null`;
+exports[`Character should match the wrapper 1`] = `
+<div
+  className="Character"
+  key="1"
+>
+  <input
+    alt="favoriteIcon"
+    className="favoriteIcon"
+    onClick={[Function]}
+    src="not-favorite-ds.svg"
+    type="image"
+  />
+  <h1>
+    Luke Skywalker
+  </h1>
+  <p>
+    Human
+  </p>
+  <p>
+    Tatooine
+  </p>
+  <p>
+    200000
+  </p>
+  <p>
+    The Empire Strikes Back
+    Revenge of the Sith
+    Return of the Jedi
+    A New Hope
+    The Force Awakens
+  </p>
+</div>
+`;
