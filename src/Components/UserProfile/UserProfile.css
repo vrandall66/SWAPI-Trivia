@@ -16,6 +16,10 @@
   margin: 0;
 }
 
+.drop-down-menu {
+  margin:0 20px 20px 20px;
+}
+
 .UserProfile__hamburger-icon {
   height: 42px;
   width: 50px;
@@ -38,3 +42,38 @@
   padding-left: 10px;
   text-shadow: 2px 2px 2px#222;
 }
+
+.fav-buton-saber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.UserProfile__button--sign-out,
+.UserProfile__fav-characters {
+  border: none;
+  border-radius: 50px 0 0 50px;
+  height: 30px;
+  background: #00e100;
+  font-size: 20px;;
+  box-shadow: 10px 7px 34px -3px #00e100;
+  cursor: pointer; 
+}
+
+.saberButt {
+height: 20px;
+width: 50px;
+background: #f2f2f2;
+margin-left: 15px;
+}
+
+.UserProfile__button--sign-out {
+  border-radius: 0 50px 50px 0;
+  box-shadow: 10px 7px 34px -3px #ff0000;
+  background: #ff0000;
+  width: 185px;
+}
+
+.sbleft {
+  margin-right: 15px;
+}
+

@@ -42,3 +42,7 @@
 .planetImage7 {
   background-image: url("../../images/SWEpisode7.jpg");
 }
+
+.planetNumber {
+  filter: drop-shadow(2px 2px 2px #222);
+}
