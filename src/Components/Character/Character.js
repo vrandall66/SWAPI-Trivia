@@ -19,7 +19,6 @@ const Character = ({ characterInfo, updateCharacterFavorite }) => {
       favorite = !favorite;
       return { name, species, homeworld, films, characterid, favorite };
     };
-
     return (
       <div className="Character" key={characterid}>
         <input 
