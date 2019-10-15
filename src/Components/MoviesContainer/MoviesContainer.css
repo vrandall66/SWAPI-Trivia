@@ -15,6 +15,12 @@
   height: 80vh;
   flex-wrap: wrap;
   overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none
+}
+
+.MoviesContainer-planets::-webkit-scrollbar { 
+    display: none;
 }
 
 .MoviesContainer-loading {

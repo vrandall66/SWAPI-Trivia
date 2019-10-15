@@ -7,16 +7,18 @@ const MovieModal = ({ currentMovie, updatePlanetModalState }) => {
   const { title, id, releaseDate, url } = currentMovie;
   return (
     <div className="MovieModalContainer">
-      <input
-        type="image"
-        src={lightsaberClose}
-        alt="Crossed lightsabers - close"
-        className="MovieModal__btn--close"
-        onClick={updatePlanetModalState}
-      />
+      <div className='MovieModalContainer__div'>
+        <input
+          type="image"
+          src={lightsaberClose}
+          alt="Crossed lightsabers - close"
+          className="MovieModal__btn--close"
+          onClick={updatePlanetModalState}
+        />
+      </div>
       <h1 className="MovieModal__h1">{title}</h1>
-      <h3 className="MovieModal__h3">{id}</h3>
-      <h5 className="MovieModal__h5">{releaseDate}</h5>
+      <h3 className="MovieModal__h3">Episode: {id}</h3>
+      <h5 className="MovieModal__h5">Release Date:<br/> {releaseDate}</h5>
       <Link to={`/movies/${id}`}>
         <button
           type="button"

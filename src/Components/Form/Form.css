@@ -29,17 +29,21 @@ select {
   border: none;
   height: 2em;
   width: 200px;
+  padding-left: 10px;
 }
 
 .UserModalFormInput {
   width: 200px;
+  padding-left: 10px;
 }
 
 .UserModalFormBtn {
   border: none;
   background-color: #ffe81f;
-  height: 2em;
+  /* height: 2em; */
   width: 200px;
+  cursor: pointer;
+  font-size: 25px;
 }
 
 .UserModalFormLabel {

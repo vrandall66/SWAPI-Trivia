@@ -1,9 +1,48 @@
 .MovieModalContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-position: left 50% bottom 50%;
+  width: 100%;
+  height: 100%;
 }
 
 .MovieModal__btn--close {
   height: 42px;
   width: 42px;
+}
+
+.MovieModal {
+  align-items: center;
+  background-image: url("../../../src/images/JediOrderCrest.png");
+  background-repeat: no-repeat;
+  background-position: left 50% bottom 50%;
+  background-size: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.MovieModal__btn--characters{
+  border: none;
+  background-color: #ffe81f;
+  height: 40px;
+  width: 200px;
+  font-family: "Roboto Condensed", sans-serif;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.MovieModal__btn--close{
+  filter: drop-shadow(2px 2px 2px #222)
+}
+
+.MovieModal__h1 {
+  font-size: 50px;
+  text-shadow: 2px 2px 2px #ffe81f;
+}
+.MovieModal__h5,
+.MovieModal__h3 {
+  font-size: 35px;
+  text-shadow: 2px 2px 2px #ffe81f;
 }
