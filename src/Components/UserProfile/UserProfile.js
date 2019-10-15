@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./UserProfile.css";
-import hamburgerIcon from "../../images/HamburgerIcon.png";
+import inactiveHamMenu from "../../images/inactiveHamMenu.png";
+import activeHamMenu from "../../images/activeHamMenu.png";
 
 const UserProfile = ({
   isOpen,
@@ -20,7 +21,7 @@ const UserProfile = ({
         <input
           type="image"
           alt="User Profile Dropdown Menu Icon"
-          src={hamburgerIcon}
+          src={isOpen ? activeHamMenu : inactiveHamMenu}
           className="UserProfile__hamburger-icon"
           onClick={updateUserMenuState}
         />
@@ -28,7 +29,8 @@ const UserProfile = ({
       {isOpen ? (
         <div>
           <Link to='/favorite-characters'>
-            <button type="button" className="UserProfile__button--sign-out"> {favoriteCharacters.length} Favorite Characters</button>
+            <button type="button" className="UserProfile__button--sign-out"
+            onClick={updateUserMenuState}> {favoriteCharacters.length} Favorite Characters</button>
           </Link>
           <h5>{userFavQuote}</h5>
           <h5>{userRanking}</h5>
@@ -36,7 +38,10 @@ const UserProfile = ({
             <button
               type="button"
               className="UserProfile__button--sign-out"
-              onClick={userLogoutReset}
+              onClick={() => {
+                userLogoutReset() 
+                updateUserMenuState()
+              }}
             >
               Sign out
             </button>
