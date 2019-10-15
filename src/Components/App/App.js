@@ -11,13 +11,12 @@ import FavoriteCharacters from "../FavoriteCharacters/FavoriteCharacters";
 import UserProfile from "../UserProfile/UserProfile";
 import BB8Loading from "../../images/BB8Loading.gif";
 import "./App.css";
-
-ReactModal.setAppElement("#root");
+if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
+// ReactModal.setAppElement("#root");
 
 class App extends React.Component {
   constructor() {
     super();
-    // this.favoriteCharacters = []
     this.state = {
       showFormModal: true,
       showPlanetModal: false,
@@ -35,24 +34,6 @@ class App extends React.Component {
     getAllMovies()
       .then(moviedata => this.setState({ allMovies: moviedata.results }))
       .catch(err => console.log(err));
-  };
-
-  createMovieObjects = () => {
-    const planets = this.state.allMovies.map(movie => {
-      return {
-        title: movie.title,
-        id: movie.episode_id,
-        releaseDate: movie.release_date
-      };
-    });
-    return this.sortMovies(planets);
-  };
-
-  sortMovies = movies => {
-    console.log(movies);
-    return movies.sort((a, b) => {
-      return a.id - b.id;
-    });
   };
 
   addFavoriteCharacter = character => {
@@ -82,7 +63,6 @@ class App extends React.Component {
   handleFormSubmit = ({ name, favQuote, ranking }) => {
     this.setState({ name, favQuote, ranking });
     this.hideFormModal();
-    this.createMovieObjects();
   };
 
   resetMovieState = () => {
@@ -126,31 +106,38 @@ class App extends React.Component {
           userName={this.state.name}
           userFavQuote={this.state.favQuote}
           userRanking={this.state.ranking}
-          // userFavCharacters={this.state.favoriteCharacters}
           updateUserMenuState={this.updateUserMenuState}
           userLogoutReset={this.userLogoutReset}
         />
-        <ReactModal
-          isOpen={this.state.showFormModal}
-          onRequestClose={this.handleFormSubmit}
-          style={{ overlay: {}, content: {} }}
-          contentLabel="Welcome Form"
-          className="WelcomeFormModal"
-          overlayClassName="WelcomeFormOverlay"
-        >
-          <Form handleFormSubmit={this.handleFormSubmit} />
-        </ReactModal>
+        <Route exact path="/">
+          <ReactModal
+            isOpen={this.state.showFormModal}
+            onRequestClose={this.handleFormSubmit}
+            style={{ overlay: {}, content: {} }}
+            contentLabel="Welcome Form"
+            className="WelcomeFormModal"
+            overlayClassName="WelcomeFormOverlay"
+          >
+            <Form
+              handleFormSubmit={this.handleFormSubmit}
+              history={this.props.history}
+            />
+          </ReactModal>
+        </Route>
         <Route exact path="/" component={Home} />
         <ReactModal
           isOpen={this.state.showPlanetModal}
-          style={{ overlay: {
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(255, 255, 255, 0.75)'
-          }, content: {} }}
+          style={{
+            overlay: {
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: "rgba(255, 255, 255, 0.75)"
+            },
+            content: {}
+          }}
           className="MovieModal"
           overlayClassName="MovieModalOverlay"
         >

@@ -62,16 +62,12 @@ exports[`Form should match the snapshot 1`] = `
       Expert
     </option>
   </select>
-  <Link
-    to="/movies"
+  <button
+    className="UserModalFormBtn"
+    onClick={[Function]}
+    type="button"
   >
-    <button
-      className="UserModalFormBtn"
-      onClick={[Function]}
-      type="button"
-    >
-      Submit
-    </button>
-  </Link>
+    Submit
+  </button>
 </form>
 `;

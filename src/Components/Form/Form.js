@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import "./Form.css";
 
-class Form extends React.Component {
+export class Form extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -18,8 +18,9 @@ class Form extends React.Component {
   };
 
   handleSubmit = () => {
-    if (this.state.name.length > 0 && this.state.favQuote.length > 0) {
+    if (this.state.name.length && this.state.favQuote.length) {
       this.props.handleFormSubmit(this.state);
+      this.props.history.push("/movies");
     } else {
       this.setState({ error: true });
     }
@@ -65,15 +66,13 @@ class Form extends React.Component {
           <option value="intermediate">Intermediate</option>
           <option value="expert">Expert</option>
         </select>
-        <Link to="/movies">
-          <button
-            type="button"
-            className="UserModalFormBtn"
-            onClick={() => this.handleSubmit()}
-          >
-            Submit
-          </button>
-        </Link>
+        <button
+          type="button"
+          className="UserModalFormBtn"
+          onClick={() => this.handleSubmit()}
+        >
+          Submit
+        </button>
         {this.state.error && (
           <h3>
             The Force Is Not With You! <br /> Please Complete The Form
@@ -84,4 +83,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default withRouter(Form);
