@@ -39,3 +39,10 @@
   margin-top: 5%;
   width: 500px;
 }
+
+.episodeTitle {
+  color: #ffe81f;
+  margin: 0;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 40px;
+}

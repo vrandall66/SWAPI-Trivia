@@ -76,6 +76,7 @@ class CharactersContainer extends React.Component {
     return (
       <div className="CharactersContainer">
         <ScrollingText episode={this.state.episode} />
+        <h1 className="episodeTitle">{this.state.episode.title}</h1>
         <section className="CharactersContainer-section">
           {this.state.characters.length === 0 ? (
             <div className="BB8--Parent-Container">
@@ -86,7 +87,7 @@ class CharactersContainer extends React.Component {
                     src={BB8Loading}
                     alt="Loading GIF"
                     className="MoviesContainer-loading"
-                  />
+                    />
                 </div>
               </div>
             </div>
