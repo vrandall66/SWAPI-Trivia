@@ -87,10 +87,10 @@ describe("fetchCharacter", () => {
   });
 
   it("Should return an object with character info", () => {
-    fetchCharacter(charURL).then(character => expect(character).toEqual(mockResponse));
-  });  
+    expect(fetchCharacter()).resolves.toEqual(mockResponse);
+  });
 });
 
 describe("fetchSpecies", () => {
-  
+
 })
