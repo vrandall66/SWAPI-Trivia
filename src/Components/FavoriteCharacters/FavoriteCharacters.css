@@ -3,6 +3,18 @@
   flex-direction: column;
 }
 
+
+.toMoviesBtn__div {
+  display: flex;
+}
+
+.backToMovies{
+  color: #ffe81f;
+  font-size: 25px;
+  cursor: pointer; 
+  height: 42px;
+}
+
 .noFavText {
   color: #ffe81f;
   font-size: 50px;
