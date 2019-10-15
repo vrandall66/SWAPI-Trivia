@@ -8,7 +8,7 @@ export class Form extends React.Component {
     this.state = {
       name: "",
       favQuote: "",
-      ranking: "novice",
+      ranking: "Novice",
       error: false
     };
   }
@@ -62,9 +62,9 @@ export class Form extends React.Component {
           className="UserModalFormSelect"
           onChange={this.handleChange}
         >
-          <option value="novice">Novice</option>
-          <option value="intermediate">Intermediate</option>
-          <option value="expert">Expert</option>
+          <option value="Novice">Novice</option>
+          <option value="Intermediate">Intermediate</option>
+          <option value="Expert">Expert</option>
         </select>
         <button
           type="button"
