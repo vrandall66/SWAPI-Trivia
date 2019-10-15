@@ -3,32 +3,32 @@ import { shallow } from "enzyme";
 import Form from "./Form";
 
 describe("Form", () => {
-  let wrapper;
+  let wrapper, mockEvent, mockEvent2;
   const mockSearchFunc = jest.fn();
 
   beforeEach(() => {
     wrapper = shallow(<Form handleFormSubmit={mockSearchFunc} />);
-  });
 
-  it("should match the snapshot", () => {
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it("should update state.name on keydown of name input", () => {
-    const mockEvent = {
+    mockEvent = {
       target: {
         name: "name",
         value: "Matt"
       }
     };
 
-    const mockEvent2 = {
+    mockEvent2 = {
       target: {
         name: "favQuote",
         value: "I know"
       }
     };
+  });
 
+  it("should match the snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it("should update state on keydown of name input", () => {
     wrapper.instance().handleChange(mockEvent);
     wrapper.instance().handleChange(mockEvent2);
 
@@ -39,4 +39,29 @@ describe("Form", () => {
       ranking: "novice"
     });
   });
+
+  it("should run handleSubmit on submit", () => {
+    wrapper.instance().handleSubmit = jest.fn();
+    wrapper.instance().forceUpdate()
+    wrapper.instance().handleChange(mockEvent);
+    wrapper.instance().handleChange(mockEvent2);
+
+    wrapper.find(".UserModalFormBtn").simulate("click");
+
+    expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
+  });
+
+  it('should not run handleSubmit on submit if state is empty', () => {
+    wrapper.instance().handleSubmit = jest.fn()
+    wrapper.instance().setState({
+      name: "",
+      favQuote: "",
+      error: false,
+      ranking: "novice"
+    })
+
+    wrapper.find(".UserModalFormBtn").simulate("click");
+
+    expect(wrapper.instance().handleSubmit).not.toHaveBeenCalled();
+  })
 });

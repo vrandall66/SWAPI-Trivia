@@ -2,12 +2,10 @@
 
 exports[`MoviePlanet should match the snapshot 1`] = `
 <div
-  className="planet"
+  className="planetImage planetundefined"
   key="0"
   onClick={[Function]}
 >
-  <h1>
-    0
-  </h1>
+  <h1 />
 </div>
 `;
