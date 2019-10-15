@@ -100,50 +100,136 @@ describe("App", () => {
       showPlanetModal: false,
       showUserMenu: false
     });
-  })
+  });
 
   it("should be able to remove a favorite character from state", () => {
     let favorites = [
       {
-      name: "R2-D2",
-      species: "Droid",
-      homeworld: {
-        homeName: "Naboo",
-        homePopulation: "4500000000"
+        name: "R2-D2",
+        species: "Droid",
+        homeworld: {
+          homeName: "Naboo",
+          homePopulation: "4500000000"
+        },
+        films: [
+          "The Empire Strikes Back",
+          "Attack of the Clones",
+          "The Phantom Menace",
+          "Revenge of the Sith",
+          "Return of the Jedi",
+          "A New Hope",
+          "The Force Awakens"
+        ],
+        characterid: 3,
+        favorite: true
       },
-      films: [
-        "The Empire Strikes Back",
-        "Attack of the Clones",
-        "The Phantom Menace",
-        "Revenge of the Sith",
-        "Return of the Jedi",
-        "A New Hope",
-        "The Force Awakens"
-      ],
-      characterid: 3,
-      favorite: true
-    },
-    {
-      name: "Darth Vader",
-      species: "Human",
-      homeworld: {
-        homeName: "Tatooine",
-        homePopulation: 200000
-      },
-      films: [
-        "The Empire Strikes Back",
-        "Revenge of the Sith",
-        "Return of the Jedi",
-        "A New Hope"
-      ],
-      characterid: 4,
-      favorite: true
-    }
-  ]
+      {
+        name: "Darth Vader",
+        species: "Human",
+        homeworld: {
+          homeName: "Tatooine",
+          homePopulation: 200000
+        },
+        films: [
+          "The Empire Strikes Back",
+          "Revenge of the Sith",
+          "Return of the Jedi",
+          "A New Hope"
+        ],
+        characterid: 4,
+        favorite: true
+      }
+    ];
     wrapper.instance().setState({
       favoriteCharacters: favorites
-    })
+    });
 
-    
-  })
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+    // FINISH TESTING THIS
+  });
+
+  it("should update state when handleFormSubmit has been called", () => {
+    const mockUserInput = {
+      name: "Vanessa",
+      favQuote: "I know",
+      ranking: "Intermediate"
+    };
+
+    wrapper.instance().handleFormSubmit(mockUserInput);
+
+    expect(wrapper.state()).toEqual({
+      showFormModal: false,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "Vanessa",
+      favQuote: "I know",
+      ranking: "Intermediate",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {}
+    });
+  });
 });

@@ -147,7 +147,7 @@ describe("fetchSpecies", () => {
     noSpecies = {
       name: "R4-P17",
       homeworld: "https://swapi.co/api/planets/28/",
-      species: [],
+      species: undefined,
       films: ["https://swapi.co/api/films/5/", "https://swapi.co/api/films/6/"],
       url: "https://swapi.co/api/people/75/"
     };
@@ -164,11 +164,7 @@ describe("fetchSpecies", () => {
   it("Should return NO SPECIES AVAILABLE if the Species array is empty", () => {
     fetchSpecies(noSpecies.species);
 
-    expect(fetchSpecies(noSpecies.species)).toEqual(
-      Promise.reject({
-        ok: false
-      })
-    );
+    expect(fetchSpecies(noSpecies.species)).toEqual("NO SPECIES AVAILABLE");
   });
 
   it("should return catch error if promise rejects", () => {
@@ -278,21 +274,18 @@ describe("fetchAllCharacterData", () => {
       newCharacter.homeworld,
       newCharacter.films
     );
-    console.log("species", newCharacter.species);
-    console.log("homeworld", newCharacter.homeworld);
-    console.log("films", newCharacter.films);
 
-    expect(fetchSpecies(newCharacter.species)).toEqual(
-      Promise.resolve("Human")
+    expect(window.fetch).toHaveBeenCalledWith(
+      "https://swapi.co/api/species/1/"
     );
-    expect(fetchHomeworld(newCharacter.homeworld)).toEqual(Promise.resolve());
-    expect(fetchAllFilms(newCharacter.films)).toEqual(Promise.resolve());
-    expect(
-      fetchAllCharacterData(
-        newCharacter.species,
-        newCharacter.homeworld,
-        newCharacter.filmUrl
-      )
-    ).toEqual(Promise.resolve());
+    expect(window.fetch).toHaveBeenCalledWith(
+      "https://swapi.co/api/planets/1/"
+    );
+
+    expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/films/1/");
+    expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/films/2/");
+    expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/films/3/");
+    expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/films/6/");
+    expect(window.fetch).toHaveBeenCalledWith("https://swapi.co/api/films/7/");
   });
 });

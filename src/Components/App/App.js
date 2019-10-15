@@ -13,7 +13,7 @@ import BB8Loading from "../../images/BB8Loading.gif";
 import "./App.css";
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -29,7 +29,7 @@ class App extends React.Component {
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     getAllMovies()
       .then(moviedata => this.setState({ allMovies: moviedata.results }))
       .catch(err => console.log(err));
@@ -196,5 +196,3 @@ class App extends React.Component {
     );
   }
 }
-
-export default App;
