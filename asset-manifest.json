@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/SWAPI-Trivia/static/css/main.3a481924.chunk.css",
+    "main.js": "/SWAPI-Trivia/static/js/main.919fef3a.chunk.js",
+    "main.js.map": "/SWAPI-Trivia/static/js/main.919fef3a.chunk.js.map",
+    "runtime-main.js": "/SWAPI-Trivia/static/js/runtime-main.ff849960.js",
+    "runtime-main.js.map": "/SWAPI-Trivia/static/js/runtime-main.ff849960.js.map",
+    "static/js/2.e15772a3.chunk.js": "/SWAPI-Trivia/static/js/2.e15772a3.chunk.js",
+    "static/js/2.e15772a3.chunk.js.map": "/SWAPI-Trivia/static/js/2.e15772a3.chunk.js.map",
+    "index.html": "/SWAPI-Trivia/index.html",
+    "precache-manifest.42dbd0634f464515884812a224d90da6.js": "/SWAPI-Trivia/precache-manifest.42dbd0634f464515884812a224d90da6.js",
+    "service-worker.js": "/SWAPI-Trivia/service-worker.js",
+    "static/css/main.3a481924.chunk.css.map": "/SWAPI-Trivia/static/css/main.3a481924.chunk.css.map",
+    "static/media/BB8Loading.gif": "/SWAPI-Trivia/static/media/BB8Loading.4267e5b5.gif",
+    "static/media/App.css": "/SWAPI-Trivia/static/media/ChooseWisely.ae9a407e.png",
+    "static/media/JediOrderCrest.png": "/SWAPI-Trivia/static/media/JediOrderCrest.005d62cf.png",
+    "static/media/LightsaberCross.png": "/SWAPI-Trivia/static/media/LightsaberCross.0f7e8af5.png",
+    "static/media/MoviePlanet.css": "/SWAPI-Trivia/static/media/SWEpisode7.362ca61d.jpg",
+    "static/media/activeHamMenu.png": "/SWAPI-Trivia/static/media/activeHamMenu.41cc740c.png",
+    "static/media/favorited-ds.svg": "/SWAPI-Trivia/static/media/favorited-ds.a8396881.svg",
+    "static/media/inactiveHamMenu.png": "/SWAPI-Trivia/static/media/inactiveHamMenu.a8bf7fdd.png",
+    "static/media/index.css": "/SWAPI-Trivia/static/media/main-background.af66ee2d.jpg",
+    "static/media/not-favorite-ds.svg": "/SWAPI-Trivia/static/media/not-favorite-ds.4f7eceea.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ff849960.js",
+    "static/js/2.e15772a3.chunk.js",
+    "static/css/main.3a481924.chunk.css",
+    "static/js/main.919fef3a.chunk.js"
+  ]
+}
