@@ -129,7 +129,8 @@ class App extends React.Component {
           // userFavCharacters={this.state.favoriteCharacters}
           updateUserMenuState={this.updateUserMenuState}
           userLogoutReset={this.userLogoutReset}
-        />
+          favoriteCharacters={this.state.favoriteCharacters}
+      />
         <ReactModal
           isOpen={this.state.showFormModal}
           onRequestClose={this.handleFormSubmit}

@@ -10,7 +10,8 @@ const UserProfile = ({
   userRanking,
   userFavCharacters,
   updateUserMenuState,
-  userLogoutReset
+  userLogoutReset,
+  favoriteCharacters
 }) => {
   return (
     <div className="UserProfile">
@@ -27,7 +28,7 @@ const UserProfile = ({
       {isOpen ? (
         <div>
           <Link to='/favorite-characters'>
-            <button type="button" className="UserProfile__button--sign-out"> View Favorite Characters</button>
+            <button type="button" className="UserProfile__button--sign-out"> {favoriteCharacters.length} Favorite Characters</button>
           </Link>
           <h5>{userFavQuote}</h5>
           <h5>{userRanking}</h5>
