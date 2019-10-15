@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserProfile should match the snapshot 1`] = `
+exports[`UserProfile should match the snapshot while isOpen prop is false 1`] = `
 <div
   className="UserProfile"
 >
@@ -20,6 +20,93 @@ exports[`UserProfile should match the snapshot 1`] = `
       src="inactiveHamMenu.png"
       type="image"
     />
+  </div>
+</div>
+`;
+
+exports[`UserProfile should match the snapshot while isOpen prop is true 1`] = `
+<div
+  className="UserProfile"
+>
+  <div
+    className="UserProfile--userMenu"
+  >
+    <h1
+      className="UserProfile--userName"
+      onClick={[Function]}
+    >
+      Matt
+    </h1>
+    <input
+      alt="User Profile Dropdown Menu Icon"
+      className="UserProfile__hamburger-icon"
+      onClick={[MockFunction]}
+      src="activeHamMenu.png"
+      type="image"
+    />
+  </div>
+  <div
+    className="drop-down-menu"
+  >
+    <div
+      className="fav-button-saber"
+    >
+      <Link
+        to="/favorite-characters"
+      >
+        <button
+          className="UserProfile__fav-characters"
+          onClick={[MockFunction]}
+          type="button"
+        >
+           
+          0
+           Favorite Characters
+        </button>
+      </Link>
+      <Link
+        to="/favorite-characters"
+      >
+        <div
+          className="saberButt"
+        />
+      </Link>
+    </div>
+    <h5
+      className="user-profile-text"
+    >
+      "
+      I know
+      "
+    </h5>
+    <h5
+      className="user-profile-text"
+    >
+      Ranking: 
+      Intermediate
+    </h5>
+    <div
+      className="fav-button-saber"
+    >
+      <Link
+        to="/"
+      >
+        <div
+          className="saberButt sbleft"
+        />
+      </Link>
+      <Link
+        to="/"
+      >
+        <button
+          className="UserProfile__button--sign-out"
+          onClick={[Function]}
+          type="button"
+        >
+          Sign out
+        </button>
+      </Link>
+    </div>
   </div>
 </div>
 `;

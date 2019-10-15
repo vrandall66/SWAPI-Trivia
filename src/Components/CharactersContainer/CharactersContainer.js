@@ -5,7 +5,7 @@ import BB8Loading from "../../../src/images/BB8Loading.gif";
 import "./CharactersContainer.css";
 import { fetchCharacter, fetchAllCharacterData } from "../../ApiCalls/apiCalls";
 
-class CharactersContainer extends React.Component {
+export default class CharactersContainer extends React.Component {
   constructor({ episode, addFavoriteCharacter, checkFavoriteStatus }) {
     super();
     this.addFavoriteCharacter = addFavoriteCharacter;
@@ -17,7 +17,7 @@ class CharactersContainer extends React.Component {
     };
   }
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const fetchCharacters = this.state.episode.characters.map(character => {
       return fetchCharacter(character).then(character => {
         const { name, homeworld, species, films, url } = character;
@@ -102,5 +102,3 @@ class CharactersContainer extends React.Component {
     );
   }
 }
-
-export default CharactersContainer;

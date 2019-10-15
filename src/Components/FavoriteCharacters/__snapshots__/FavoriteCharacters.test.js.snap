@@ -7,17 +7,33 @@ exports[`FavoriteCharacters should match the snapshot 1`] = `
   <div
     className="toMoviesBtn__div"
   >
-    <Link
-      to="/movies"
+    <div
+      className="back--episodes--saber"
     >
-      <button
-        className="backToMovies"
-        type="button"
+      <Link
+        to="/movies"
       >
-        Back To All Episodes
-      </button>
-    </Link>
+        <div
+          className="saberButt sbleft"
+        />
+      </Link>
+      <Link
+        to="/movies"
+      >
+        <button
+          className="backToMovies"
+          type="button"
+        >
+          Back To All Episodes
+        </button>
+      </Link>
+    </div>
   </div>
+  <h3
+    className="noFavText"
+  >
+    Favorite Characters:
+  </h3>
   <section
     className="CharactersContainer-section"
   >

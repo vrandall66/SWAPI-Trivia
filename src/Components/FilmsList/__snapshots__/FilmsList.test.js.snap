@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilmsList should match the snapshot 1`] = `
+<ul
+  className="filmUl"
+>
+  <li
+    className="filmLi"
+  >
+    Also Seen In:
+  </li>
+  <li
+    className="filmLi"
+    key="0"
+  >
+    The Empire Strikes Back
+  </li>
+  <li
+    className="filmLi"
+    key="1"
+  >
+    Attack of the Clones
+  </li>
+  <li
+    className="filmLi"
+    key="2"
+  >
+    The Phantom Menace
+  </li>
+  <li
+    className="filmLi"
+    key="3"
+  >
+    Revenge of the Sith
+  </li>
+  <li
+    className="filmLi"
+    key="4"
+  >
+    Return of the Jedi
+  </li>
+  <li
+    className="filmLi"
+    key="5"
+  >
+    A New Hope
+  </li>
+  <li
+    className="filmLi"
+    key="6"
+  >
+    The Force Awakens
+  </li>
+</ul>
+`;
