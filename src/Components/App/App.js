@@ -12,7 +12,6 @@ import UserProfile from "../UserProfile/UserProfile";
 import BB8Loading from "../../images/BB8Loading.gif";
 import "./App.css";
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
-// ReactModal.setAppElement("#root");
 
 class App extends React.Component {
   constructor() {

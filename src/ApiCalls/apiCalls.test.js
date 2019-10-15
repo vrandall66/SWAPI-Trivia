@@ -79,7 +79,7 @@ describe("fetchCharacter", () => {
       "https://swapi.co/api/films/7/"
     ],
     url: "https://swapi.co/api/people/1/"
-  }
+  };
 
   beforeEach(() => {
     beforeEach(() => {
@@ -100,7 +100,6 @@ describe("fetchCharacter", () => {
   });
 
   it("Should return an object with character info", () => {
-
     expect(fetchCharacter(newCharacter)).resolves.toEqual(mockResponse);
   });
 });
