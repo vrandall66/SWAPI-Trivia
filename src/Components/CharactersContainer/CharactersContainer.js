@@ -12,7 +12,8 @@ class CharactersContainer extends React.Component {
     this.checkFavoriteStatus = checkFavoriteStatus;
     this.state = {
       episode,
-      characters: []
+      characters: [],
+      remainingCharacters: []
     };
   }
 
@@ -36,7 +37,9 @@ class CharactersContainer extends React.Component {
         favorite: this.checkFavoriteStatus(parseInt(character.url.split('/').splice(5, 1).pop()))
       };
     });
-    this.setState({ characters: characterCards });
+    const tenCharacters = characterCards.slice(0,10)
+    const remainingCharacters = characterCards.slice(11)
+    this.setState({ characters: tenCharacters, remainingCharacters: remainingCharacters });
   };
 
   updateCharacterFavorite = favoriteCharacter => {
@@ -70,8 +73,7 @@ class CharactersContainer extends React.Component {
           ) : (
             <Character
               characterInfo={this.state.characters}
-              updateCharacterFavorite={this.updateCharacterFavorite}
-            />
+              updateCharacterFavorite={this.updateCharacterFavorite}/>
           )}
         </section>
       </div>
