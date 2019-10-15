@@ -30,13 +30,13 @@ Here are screen shots and a gif of a short walkthrough of the app.
 
 - [x] Built on React
 - [x] React Modals
-- [ ] React Router
-- [ ] Fetch
-- [ ] Nested Fetch
-- [ ] Loading Screens while fetch is in progress
-- [ ] Paths making use of forward/back button
-- [ ] Favorited characters persist across web app and correctly appear when view other episodes
-- [ ] Signing out redirects back to main page, clearing out all data and resetting state for new user
+- [x] React Router
+- [x] Fetch
+- [x] Nested Fetch
+- [x] Loading Screens while fetch is in progress
+- [x] Paths making use of forward/back button
+- [x] Favorited characters persist across web app and correctly appear when view other episodes
+- [x] Signing out redirects back to main page, clearing out all data and resetting state for new user
 
 ## Try It Out
 
@@ -60,7 +60,7 @@ View <a href=https://vrandall66.github.io/SWAPI-Trivia/>here</a> on GitHub.
 
 ## Why'd We Do This?
 
-I am a student at Turing School of Software and Design, whom provioded the project specifications and website design. I am learning all the things on my way to becoming a Software Engineer.
+We are students at Turing School of Software and Design, whom provioded the project specifications and website design. We are learning all the things on our way to becoming Software Engineers.
 
 
 ## Link to Project Management Board
