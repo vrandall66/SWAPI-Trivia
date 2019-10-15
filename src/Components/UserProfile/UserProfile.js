@@ -17,7 +17,7 @@ const UserProfile = ({
   return (
     <div className="UserProfile">
       <div className="UserProfile--userMenu">
-        <h1 className="UserProfile--userName">{userName}</h1>
+        <h1 className="UserProfile--userName" onClick={() => updateUserMenuState()}>{userName}</h1>
         <input
           type="image"
           alt="User Profile Dropdown Menu Icon"
@@ -37,8 +37,8 @@ const UserProfile = ({
               <div className='saberButt'></div>
             </Link>
           </div>
-          <h5>{userFavQuote}</h5>
-          <h5>{userRanking}</h5>
+          <h5 className='user-profile-text'>"{userFavQuote}"</h5>
+          <h5 className='user-profile-text'>{userRanking}</h5>
           <div className='fav-buton-saber'>
             <Link to='/'>
               <div className='saberButt sbleft'></div>

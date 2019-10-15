@@ -12,9 +12,7 @@
   background-color: green;
 }
 
-.UserProfile--userName {
-  margin: 0;
-}
+
 
 .drop-down-menu {
   margin:0 20px 20px 20px;
@@ -36,11 +34,18 @@
 }
 
 .UserProfile--userName {
+  margin: 0;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 40px;
   color: #ffe81f;
   padding-left: 10px;
   text-shadow: 2px 2px 2px#222;
+  cursor: pointer; 
+}
+
+.user-profile-text {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 40px;
 }
 
 .fav-buton-saber {
