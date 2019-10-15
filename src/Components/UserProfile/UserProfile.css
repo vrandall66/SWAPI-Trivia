@@ -21,6 +21,7 @@
   width: 50px;
   padding: 1px;
   margin: 6px;
+  filter: drop-shadow(2px 2px 2px #222);
 }
 
 .UserProfile--userMenu {
@@ -28,4 +29,12 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+
+.UserProfile--userName {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 40px;
+  color: #ffe81f;
+  padding-left: 10px;
+  text-shadow: 2px 2px 2px#222;
 }
