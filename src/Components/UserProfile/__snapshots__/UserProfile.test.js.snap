@@ -16,7 +16,7 @@ exports[`UserProfile should match the snapshot 1`] = `
       alt="User Profile Dropdown Menu Icon"
       className="UserProfile__hamburger-icon"
       onClick={[MockFunction]}
-      src="HamburgerIcon.png"
+      src="inactiveHamMenu.png"
       type="image"
     />
   </div>

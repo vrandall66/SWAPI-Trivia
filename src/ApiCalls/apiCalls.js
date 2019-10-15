@@ -38,10 +38,10 @@ export const fetchAllFilms = allFilmUrls => {
   return Promise.all(allFilms);
 };
 
-export const fetchAllCharacterData = (speciesUrl, homeworldUrl, filmUrl) => {
+export const fetchAllCharacterData = (speciesUrl, homeworldUrl, films) => {
   let speciesData = fetchSpecies(...speciesUrl);
   let homeworldData = fetchHomeworld(homeworldUrl);
-  let filmsData = fetchAllFilms(filmUrl);
+  let filmsData = fetchAllFilms(films);
 
   return Promise.all([speciesData, homeworldData, filmsData]);
 };
