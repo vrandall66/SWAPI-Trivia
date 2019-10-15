@@ -232,4 +232,123 @@ describe("App", () => {
       currentMovie: {}
     });
   });
+
+  it("should be able to reset movie state", () => {
+    wrapper.instance().setState({
+      showFormModal: true,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {
+        id: 5,
+        releaseDate: "1980-05-17",
+        title: "The Empire Strikes Back",
+        url: "https://swapi.co/api/films/2/"
+      }
+    });
+
+    wrapper.instance().resetMovieState();
+
+    expect(wrapper.state()).toEqual({
+      showFormModal: true,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {}
+    });
+  });
+
+  it("should be able to reset formModal in state", () => {
+    wrapper.instance().setState({
+      showFormModal: true,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {}
+    });
+
+    wrapper.instance().hideFormModal();
+
+    expect(wrapper.state()).toEqual({
+      showFormModal: false,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {}
+    });
+  });
+
+  it("should be able to reset the planetModal in state", () => {
+    wrapper.instance().setState({
+      showFormModal: false,
+      showPlanetModal: true,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {}
+    });
+
+    wrapper.instance().updatePlanetModalState();
+
+    expect(wrapper.state()).toEqual({
+      showFormModal: false,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {}
+    });
+  });
+
+  it("should be able to update the userMenu state", () => {
+    wrapper.instance().setState({
+      showFormModal: false,
+      showPlanetModal: false,
+      showUserMenu: false,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {}
+    });
+
+    wrapper.instance().updateUserMenuState();
+
+    expect(wrapper.state()).toEqual({
+      showFormModal: false,
+      showPlanetModal: false,
+      showUserMenu: true,
+      name: "",
+      favQuote: "",
+      ranking: "",
+      favoriteCharacters: [],
+      allMovies: [],
+      currentMovie: {}
+    })
+  })
+
+  
 });
