@@ -16,7 +16,8 @@ const FavoriteCharacters = ({ characterInfo, addFavoriteCharacter}) => {
         </Link>
       </div>
      <section className="CharactersContainer-section">
-      <Character characterInfo={characterInfo} updateCharacterFavorite={addFavoriteCharacter} />
+     { characterInfo.length ?  <Character characterInfo={characterInfo} updateCharacterFavorite={addFavoriteCharacter} /> : <h3 className='noFavText'>No Character's Favorited</h3>
+     }
      </section>
     </div>
   )
