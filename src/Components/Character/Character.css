@@ -2,6 +2,7 @@
   background-color: black;
   margin-bottom: 30px;
   width: 250px;
+  min-height: 380px;
 }
 
 .favoriteIcon {
