@@ -29,4 +29,10 @@ describe("MoviePlanet", () => {
   it("should match the snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it("should call updateCurrentMovie onClick of movie planet", () => {
+    wrapper.find(".planetImage").simulate("click");
+
+    expect(updateCurrentMovie).toHaveBeenCalled();
+  });
 });

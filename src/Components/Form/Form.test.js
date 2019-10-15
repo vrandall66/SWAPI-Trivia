@@ -5,9 +5,10 @@ import { Form } from "./Form";
 describe("Form", () => {
   let wrapper, mockEvent, mockEvent2;
   const mockSearchFunc = jest.fn();
+  const historyMock = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallow(<Form handleFormSubmit={mockSearchFunc} />);
+    wrapper = shallow(<Form handleFormSubmit={mockSearchFunc} history={historyMock}/>);
 
     mockEvent = {
       target: {
@@ -56,4 +57,5 @@ describe("Form", () => {
 
     expect(mockSearchFunc).not.toHaveBeenCalled();
   });
+
 });

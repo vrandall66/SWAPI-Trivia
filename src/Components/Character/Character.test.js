@@ -35,7 +35,12 @@ describe("Character", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should iterate through the characterInfo property and create a Character Card for each character", () => {
-    
+  it("should iterate through the characterInfo property and create a Character Card for each character", () => {});
+
+  it("should run updateCharacterFavorite onClick of favorite icon", () => {
+    updateCharacterFavorite.mockClear();
+    wrapper.find(".favoriteIcon").simulate("click");
+
+    expect(updateCharacterFavorite).toHaveBeenCalled();
   });
 });
