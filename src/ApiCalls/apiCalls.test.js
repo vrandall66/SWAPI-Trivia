@@ -104,4 +104,99 @@ describe("fetchCharacter", () => {
   });
 });
 
-describe("fetchSpecies", () => {});
+describe("fetchSpecies", () => {
+  let newCharacter;
+  let noSpecies;
+
+  beforeEach(() => {
+    newCharacter = {
+      name: "Luke Skywalker",
+      homeworld: "https://swapi.co/api/planets/1/",
+      species: ["https://swapi.co/api/species/1/"],
+      films: [
+        "https://swapi.co/api/films/2/",
+        "https://swapi.co/api/films/6/",
+        "https://swapi.co/api/films/3/",
+        "https://swapi.co/api/films/1/",
+        "https://swapi.co/api/films/7/"
+      ],
+      url: "https://swapi.co/api/people/1/"
+    };
+
+    noSpecies = {
+      name: "R4-P17",
+      homeworld: "https://swapi.co/api/planets/28/",
+      species: [],
+      films: ["https://swapi.co/api/films/5/", "https://swapi.co/api/films/6/"],
+      url: "https://swapi.co/api/people/75/"
+    };
+  });
+
+  it("Should return the species name", () => {
+    fetchSpecies(newCharacter.species);
+
+    expect(fetchSpecies(newCharacter.species)).toEqual(
+      Promise.resolve("Human")
+    );
+  });
+
+  it("Should return NO SPECIES AVAILABLE if the Species array is empty", () => {
+    fetchSpecies(noSpecies.species);
+
+    expect(fetchSpecies(noSpecies.species)).toEqual(
+      Promise.resolve("NO SPECIES AVAILABLE")
+    );
+  });
+});
+
+describe("fetchHomeworld", () => {
+  let newCharacter;
+
+  beforeEach(() => {
+    newCharacter = {
+      name: "Luke Skywalker",
+      homeworld: "https://swapi.co/api/planets/1/",
+      species: ["https://swapi.co/api/species/1/"],
+      films: [
+        "https://swapi.co/api/films/2/",
+        "https://swapi.co/api/films/6/",
+        "https://swapi.co/api/films/3/",
+        "https://swapi.co/api/films/1/",
+        "https://swapi.co/api/films/7/"
+      ],
+      url: "https://swapi.co/api/people/1/"
+    };
+  });
+
+  it("should fetch homeworld data", () => {
+    fetchHomeworld(newCharacter.homeworld)
+
+    expect(fetchHomeworld(newCharacter.homeworld)).toEqual(Promise.resolve())
+  })
+});
+
+describe("fetchAllFilms", () => {
+  let newCharacter;
+
+  beforeEach(() => {
+    newCharacter = {
+      name: "Luke Skywalker",
+      homeworld: "https://swapi.co/api/planets/1/",
+      species: ["https://swapi.co/api/species/1/"],
+      films: [
+        "https://swapi.co/api/films/2/",
+        "https://swapi.co/api/films/6/",
+        "https://swapi.co/api/films/3/",
+        "https://swapi.co/api/films/1/",
+        "https://swapi.co/api/films/7/"
+      ],
+      url: "https://swapi.co/api/people/1/"
+    };
+  })
+
+  it("should fetch all films the character has been in", () => {
+    fetchAllFilms(newCharacter.films)
+
+    expect(fetchAllFilms(newCharacter.films)).toEqual(Promise.resolve())
+  })
+})
