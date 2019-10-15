@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CharactersContainer should match the snapshot 1`] = `
+exports[`CharactersContainer should match the snapshot when menu is collapsed 1`] = `
 <div
   className="CharactersContainer"
 >
@@ -43,6 +43,56 @@ exports[`CharactersContainer should match the snapshot 1`] = `
             alt="Loading GIF"
             className="MoviesContainer-loading"
             src="BB8Loading.gif"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
+
+exports[`CharactersContainer should match the snapshot when menu is open 1`] = `
+<div
+  className="CharactersContainer"
+>
+  <ScrollingText
+    episode={
+      Object {
+        "characters": Array [],
+        "created": "",
+        "director": "",
+        "edited": "",
+        "episode_id": 0,
+        "opening_crawl": "",
+        "planets": Array [],
+        "producer": "",
+        "releaseDate": "",
+        "species": Array [],
+        "starships": Array [],
+        "title": "The Phantom Menace",
+        "url": "",
+        "vehicles": Array [],
+      }
+    }
+  />
+  <section
+    className="CharactersContainer-section"
+  >
+    <div
+      className="BB8--Parent-Container"
+    >
+      <div
+        className="BB8"
+      >
+        <div
+          className="BB8--loading"
+        >
+          <h1>
+            Loading Characters
+          </h1>
+          <img
+            alt="Loading GIF"
+            className="MoviesContainer-loading"
           />
         </div>
       </div>
