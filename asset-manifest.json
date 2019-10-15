@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SWAPI-Trivia/static/css/main.3a481924.chunk.css",
-    "main.js": "/SWAPI-Trivia/static/js/main.919fef3a.chunk.js",
-    "main.js.map": "/SWAPI-Trivia/static/js/main.919fef3a.chunk.js.map",
+    "main.js": "/SWAPI-Trivia/static/js/main.a04a6df4.chunk.js",
+    "main.js.map": "/SWAPI-Trivia/static/js/main.a04a6df4.chunk.js.map",
     "runtime-main.js": "/SWAPI-Trivia/static/js/runtime-main.ff849960.js",
     "runtime-main.js.map": "/SWAPI-Trivia/static/js/runtime-main.ff849960.js.map",
     "static/js/2.e15772a3.chunk.js": "/SWAPI-Trivia/static/js/2.e15772a3.chunk.js",
     "static/js/2.e15772a3.chunk.js.map": "/SWAPI-Trivia/static/js/2.e15772a3.chunk.js.map",
     "index.html": "/SWAPI-Trivia/index.html",
-    "precache-manifest.42dbd0634f464515884812a224d90da6.js": "/SWAPI-Trivia/precache-manifest.42dbd0634f464515884812a224d90da6.js",
+    "precache-manifest.71f0beef4e62d8f4ea3035b82fbadeef.js": "/SWAPI-Trivia/precache-manifest.71f0beef4e62d8f4ea3035b82fbadeef.js",
     "service-worker.js": "/SWAPI-Trivia/service-worker.js",
     "static/css/main.3a481924.chunk.css.map": "/SWAPI-Trivia/static/css/main.3a481924.chunk.css.map",
     "static/media/BB8Loading.gif": "/SWAPI-Trivia/static/media/BB8Loading.4267e5b5.gif",
@@ -26,6 +26,6 @@
     "static/js/runtime-main.ff849960.js",
     "static/js/2.e15772a3.chunk.js",
     "static/css/main.3a481924.chunk.css",
-    "static/js/main.919fef3a.chunk.js"
+    "static/js/main.a04a6df4.chunk.js"
   ]
 }
