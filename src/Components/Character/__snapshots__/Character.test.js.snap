@@ -13,23 +13,31 @@ exports[`Character should match the wrapper 1`] = `
     type="image"
   />
   <h1>
+    Name: 
     Luke Skywalker
   </h1>
   <p>
+    Species: 
     Human
   </p>
   <p>
+    Homeworld: 
     Tatooine
   </p>
   <p>
+    Homeworld Population: 
     200000
   </p>
-  <p>
-    The Empire Strikes Back
-    Revenge of the Sith
-    Return of the Jedi
-    A New Hope
-    The Force Awakens
-  </p>
+  <FilmsList
+    films={
+      Array [
+        "The Empire Strikes Back",
+        "Revenge of the Sith",
+        "Return of the Jedi",
+        "A New Hope",
+        "The Force Awakens",
+      ]
+    }
+  />
 </div>
 `;

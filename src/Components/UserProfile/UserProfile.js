@@ -9,7 +9,6 @@ const UserProfile = ({
   userName,
   userFavQuote,
   userRanking,
-  userFavCharacters,
   updateUserMenuState,
   userLogoutReset,
   favoriteCharacters
