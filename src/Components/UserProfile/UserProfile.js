@@ -32,7 +32,6 @@ const UserProfile = ({
           </Link>
           <h5>{userFavQuote}</h5>
           <h5>{userRanking}</h5>
-          {/* <h5>{[userFavCharacters]}</h5> */}
           <Link to="/">
             <button
               type="button"

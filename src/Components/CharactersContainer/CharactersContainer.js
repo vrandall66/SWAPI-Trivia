@@ -3,7 +3,7 @@ import Character from "../Character/Character";
 import ScrollingText from "../ScrollingText/ScrollingText";
 import BB8Loading from "../../../src/images/BB8Loading.gif";
 import "./CharactersContainer.css";
-import { fetchCharacter } from "../../ApiCalls/apiCalls";
+import { fetchCharacter, fetchAllCharacterData } from "../../ApiCalls/apiCalls";
 
 class CharactersContainer extends React.Component {
   constructor({ episode, addFavoriteCharacter, checkFavoriteStatus }) {
@@ -19,7 +19,12 @@ class CharactersContainer extends React.Component {
 
   componentDidMount = () => {
     const fetchCharacters = this.state.episode.characters.map(character => {
-      return fetchCharacter(character);
+      return fetchCharacter(character).then(character => {
+        const { name, homeworld, species, films, url } = character;
+        return fetchAllCharacterData(species, homeworld, films)
+          .then(response => ({ name, response, url }))
+          .catch(err => console.log(err));
+      });
     });
     return Promise.all(fetchCharacters).then(characters =>
       this.createCharacterCard(characters)
@@ -33,13 +38,28 @@ class CharactersContainer extends React.Component {
         species: character.response[0],
         homeworld: character.response[1],
         films: character.response[2],
-        characterid: parseInt(character.url.split('/').splice(5,1).pop()),
-        favorite: this.checkFavoriteStatus(parseInt(character.url.split('/').splice(5, 1).pop()))
+        characterid: parseInt(
+          character.url
+            .split("/")
+            .splice(5, 1)
+            .pop()
+        ),
+        favorite: this.checkFavoriteStatus(
+          parseInt(
+            character.url
+              .split("/")
+              .splice(5, 1)
+              .pop()
+          )
+        )
       };
     });
-    const tenCharacters = characterCards.slice(0,10)
-    const remainingCharacters = characterCards.slice(11)
-    this.setState({ characters: tenCharacters, remainingCharacters: remainingCharacters });
+    const tenCharacters = characterCards.slice(0, 10);
+    const remainingCharacters = characterCards.slice(11);
+    this.setState({
+      characters: tenCharacters,
+      remainingCharacters: remainingCharacters
+    });
   };
 
   updateCharacterFavorite = favoriteCharacter => {
@@ -73,7 +93,8 @@ class CharactersContainer extends React.Component {
           ) : (
             <Character
               characterInfo={this.state.characters}
-              updateCharacterFavorite={this.updateCharacterFavorite}/>
+              updateCharacterFavorite={this.updateCharacterFavorite}
+            />
           )}
         </section>
       </div>

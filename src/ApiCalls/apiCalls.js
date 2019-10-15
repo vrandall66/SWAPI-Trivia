@@ -1,46 +1,47 @@
 export const getAllMovies = () => {
-  return fetch("https://swapi.co/api/films/").then(res => res.json());
+  return fetch("https://swapi.co/api/films/")
+    .then(res => res.json())
+    .catch(err => console.log(err));
 };
 
-export const fetchCharacter = (character) => {
+export const fetchCharacter = character => {
   return fetch(character)
-  .then(res => res.json())
-  .then ( character => {
-    const { name, homeworld, species, films, url} = character
-      return fetchAllCharacterData(species, homeworld, films)
-        .then(response => ({ name, response, url}))
-    })
-  }
-  
-  const fetchSpecies = (url) => {
-    if (!url) {
-      return 'NO SPECIES AVAILABLE'
-    } else {
-  return fetch(url)
-    .then( res => res.json())
-    .then(lifeForm => lifeForm.name)
-  }
-}
+    .then(res => res.json())
+    .catch(err => console.log(err));
+};
 
-const fetchHomeworld = (url) => {
+export const fetchSpecies = url => {
+  if (!url) {
+    return "NO SPECIES AVAILABLE";
+  } else {
+    return fetch(url)
+      .then(res => res.json())
+      .then(lifeForm => lifeForm.name)
+      .catch(err => console.log(err));
+  }
+};
+
+export const fetchHomeworld = url => {
   return fetch(url)
     .then(res => res.json())
-    .then(home => ({homeName: home.name, homePopulation: home.population}))
-}
+    .then(home => ({ homeName: home.name, homePopulation: home.population }))
+    .catch(err => console.log(err));
+};
 
-const fetchAllFilms = (allFilmUrls) => {
+export const fetchAllFilms = allFilmUrls => {
   const allFilms = allFilmUrls.map(film => {
     return fetch(film)
-    .then(film => film.json())
-    .then(film => film.title)
-  })
-  return Promise.all(allFilms)
-}
+      .then(film => film.json())
+      .then(film => film.title)
+      .catch(err => console.log(err));
+  });
+  return Promise.all(allFilms);
+};
 
-const fetchAllCharacterData = (speciesUrl, homeworldUrl, filmUrl) => {
-    let speciesData = fetchSpecies(...speciesUrl);
-    let homeworldData = fetchHomeworld(homeworldUrl);
-    let filmsData = fetchAllFilms(filmUrl);
+export const fetchAllCharacterData = (speciesUrl, homeworldUrl, filmUrl) => {
+  let speciesData = fetchSpecies(...speciesUrl);
+  let homeworldData = fetchHomeworld(homeworldUrl);
+  let filmsData = fetchAllFilms(filmUrl);
 
-    return Promise.all([speciesData, homeworldData, filmsData])
-}
+  return Promise.all([speciesData, homeworldData, filmsData]);
+};

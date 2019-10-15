@@ -67,6 +67,19 @@ describe("fetchCharacter", () => {
     edited: "2014-12-20T21:17:56.891000Z",
     url: "https://swapi.co/api/people/1/"
   };
+  const newCharacter = {
+    name: "Luke Skywalker",
+    homeworld: "https://swapi.co/api/planets/1/",
+    species: ["https://swapi.co/api/species/1/"],
+    films: [
+      "https://swapi.co/api/films/2/",
+      "https://swapi.co/api/films/6/",
+      "https://swapi.co/api/films/3/",
+      "https://swapi.co/api/films/1/",
+      "https://swapi.co/api/films/7/"
+    ],
+    url: "https://swapi.co/api/people/1/"
+  };
 
   beforeEach(() => {
     beforeEach(() => {
@@ -77,20 +90,18 @@ describe("fetchCharacter", () => {
         });
       });
     });
-  })
+  });
 
   it("should call fetch with the correct URL", () => {
-    window.fetch.mockClear()
+    window.fetch.mockClear();
     fetchCharacter(charURL);
 
     expect(window.fetch).toHaveBeenCalledWith(charURL);
   });
 
   it("Should return an object with character info", () => {
-    expect(fetchCharacter()).resolves.toEqual(mockResponse);
+    expect(fetchCharacter(newCharacter)).resolves.toEqual(mockResponse);
   });
 });
 
-describe("fetchSpecies", () => {
-
-})
+describe("fetchSpecies", () => {});

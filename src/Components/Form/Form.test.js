@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Form from "./Form";
+import { Form } from "./Form";
 
 describe("Form", () => {
   let wrapper, mockEvent, mockEvent2;
@@ -42,7 +42,7 @@ describe("Form", () => {
 
   it("should run handleSubmit on submit", () => {
     wrapper.instance().handleSubmit = jest.fn();
-    wrapper.instance().forceUpdate()
+    wrapper.instance().forceUpdate();
     wrapper.instance().handleChange(mockEvent);
     wrapper.instance().handleChange(mockEvent2);
 
@@ -51,17 +51,9 @@ describe("Form", () => {
     expect(wrapper.instance().handleSubmit).toHaveBeenCalled();
   });
 
-  it('should not run handleSubmit on submit if state is empty', () => {
-    wrapper.instance().handleSubmit = jest.fn()
-    wrapper.instance().setState({
-      name: "",
-      favQuote: "",
-      error: false,
-      ranking: "novice"
-    })
+  it("should not run handleFormSubmit on handleSubmit if state is empty", () => {
+    wrapper.instance().handleSubmit();
 
-    wrapper.find(".UserModalFormBtn").simulate("click");
-
-    expect(wrapper.instance().handleSubmit).not.toHaveBeenCalled();
-  })
+    expect(mockSearchFunc).not.toHaveBeenCalled();
+  });
 });
