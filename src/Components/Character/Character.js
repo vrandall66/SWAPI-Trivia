@@ -5,7 +5,6 @@ import favorited from '../../images/favorited-ds.svg'
 
 const Character = ({ characterInfo, updateCharacterFavorite }) => {
   return characterInfo.map( (character) => {
-    console.log(character)
     const { name, species, homeworld, films, characterid, favorite } = character
     const favoriteCharacter = character => {
       let {
