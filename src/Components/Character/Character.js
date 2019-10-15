@@ -3,6 +3,7 @@ import "./Character.css";
 import "../CharactersContainer/CharactersContainer.css"
 import notFavorited from '../../images/not-favorite-ds.svg'
 import favorited from '../../images/favorited-ds.svg'
+import FilmsList from '../FilmsList/FilmsList'
 
 const Character = ({ characterInfo, updateCharacterFavorite }) => {
   return characterInfo.map( (character) => {
@@ -19,6 +20,8 @@ const Character = ({ characterInfo, updateCharacterFavorite }) => {
       favorite = !favorite;
       return { name, species, homeworld, films, characterid, favorite };
     };
+
+    
     return (
       <div className="Character" key={characterid}>
         <input 
@@ -28,11 +31,11 @@ const Character = ({ characterInfo, updateCharacterFavorite }) => {
           src={favorite ? favorited : notFavorited} 
           onClick={() => updateCharacterFavorite(favoriteCharacter(character))}
         />
-        <h1>{name}</h1>
-        <p>{species}</p>
-        <p>{homeworld.homeName}</p>
-        <p>{homeworld.homePopulation}</p>
-        <p>{films}</p>
+        <h1>Name: {name}</h1>
+        <p>Species: {species}</p>
+        <p>Homeworld: {homeworld.homeName}</p>
+        <p>Homeworld Population: {homeworld.homePopulation}</p>
+        {<FilmsList films={films}/>}
       </div>
     );
   });
