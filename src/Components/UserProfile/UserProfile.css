@@ -18,8 +18,9 @@
 
 .UserProfile__hamburger-icon {
   height: 42px;
-  margin: 0;
-  width: 42px;
+  width: 50px;
+  padding: 1px;
+  margin: 6px;
 }
 
 .UserProfile--userMenu {

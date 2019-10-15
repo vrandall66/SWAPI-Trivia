@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./UserProfile.css";
-import hamburgerIcon from "../../images/HamburgerIcon.png";
+import inactiveHamMenu from "../../images/inactiveHamMenu.png";
+import activeHamMenu from "../../images/activeHamMenu.png";
 
 const UserProfile = ({
   isOpen,
@@ -20,7 +21,7 @@ const UserProfile = ({
         <input
           type="image"
           alt="User Profile Dropdown Menu Icon"
-          src={hamburgerIcon}
+          src={isOpen ? activeHamMenu : inactiveHamMenu}
           className="UserProfile__hamburger-icon"
           onClick={updateUserMenuState}
         />
