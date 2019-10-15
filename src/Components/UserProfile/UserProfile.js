@@ -28,7 +28,7 @@ const UserProfile = ({
       </div>
       {isOpen ? (
         <div className='drop-down-menu'>
-          <div className='fav-buton-saber'>
+          <div className='fav-button-saber'>
             <Link to='/favorite-characters'>
               <button type="button" className="UserProfile__fav-characters"
               onClick={updateUserMenuState}> {favoriteCharacters.length} Favorite Characters</button>
@@ -38,8 +38,8 @@ const UserProfile = ({
             </Link>
           </div>
           <h5 className='user-profile-text'>"{userFavQuote}"</h5>
-          <h5 className='user-profile-text'>{userRanking}</h5>
-          <div className='fav-buton-saber'>
+          <h5 className='user-profile-text'>Ranking: {userRanking}</h5>
+          <div className='fav-button-saber'>
             <Link to='/'>
               <div className='saberButt sbleft'></div>
             </Link>
