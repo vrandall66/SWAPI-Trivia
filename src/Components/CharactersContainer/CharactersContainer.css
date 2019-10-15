@@ -8,6 +8,12 @@
   height: 25vh;
   overflow: hidden;
   text-transform: uppercase;
+  -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.CharactersContainer-h1::-webkit-scrollbar { 
+    display: none;
 }
 
 .CharactersContainer-section {
@@ -17,6 +23,12 @@
   height: 70vh;
   overflow: scroll;
   width: 100%;
+  -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.CharactersContainer-section::-webkit-scrollbar { 
+    display: none;  
 }
 
 .BB8--Parent-Container {
