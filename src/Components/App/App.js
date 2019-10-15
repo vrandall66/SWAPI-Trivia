@@ -107,6 +107,7 @@ class App extends React.Component {
           userRanking={this.state.ranking}
           updateUserMenuState={this.updateUserMenuState}
           userLogoutReset={this.userLogoutReset}
+          favoriteCharacters={this.state.favoriteCharacters}
         />
         <Route exact path="/">
           <ReactModal
