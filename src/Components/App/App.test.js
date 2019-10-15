@@ -140,7 +140,7 @@ describe("App", () => {
       favorite: true
     }
   ]
-    wrapper.instance.setState({
+    wrapper.instance().setState({
       favoriteCharacters: favorites
     })
 

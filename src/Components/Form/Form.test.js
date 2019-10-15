@@ -36,7 +36,7 @@ describe("Form", () => {
       name: "Matt",
       favQuote: "I know",
       error: false,
-      ranking: "novice"
+      ranking: "Novice"
     });
   });
 

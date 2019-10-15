@@ -9,6 +9,7 @@ exports[`UserProfile should match the snapshot 1`] = `
   >
     <h1
       className="UserProfile--userName"
+      onClick={[Function]}
     >
       Matt
     </h1>

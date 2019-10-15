@@ -47,17 +47,17 @@ exports[`Form should match the snapshot 1`] = `
     onChange={[Function]}
   >
     <option
-      value="novice"
+      value="Novice"
     >
       Novice
     </option>
     <option
-      value="intermediate"
+      value="Intermediate"
     >
       Intermediate
     </option>
     <option
-      value="expert"
+      value="Expert"
     >
       Expert
     </option>
