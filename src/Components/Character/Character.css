@@ -3,6 +3,7 @@
   margin-bottom: 30px;
   width: 250px;
   min-height: 380px;
+  max-height: 420px;
 }
 
 .favoriteIcon {
