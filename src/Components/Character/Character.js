@@ -1,5 +1,6 @@
 import React from "react";
 import "./Character.css";
+import "../CharactersContainer/CharactersContainer.css"
 import notFavorited from '../../images/not-favorite-ds.svg'
 import favorited from '../../images/favorited-ds.svg'
 
