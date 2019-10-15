@@ -5,6 +5,7 @@ exports[`App should match the wrapper 1`] = `
   className="App"
 >
   <UserProfile
+    favoriteCharacters={Array []}
     isOpen={false}
     updateUserMenuState={[Function]}
     userFavQuote=""
