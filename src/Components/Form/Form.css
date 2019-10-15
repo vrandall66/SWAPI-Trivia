@@ -29,10 +29,12 @@ select {
   border: none;
   height: 2em;
   width: 200px;
+  padding-left: 10px;
 }
 
 .UserModalFormInput {
   width: 200px;
+  padding-left: 10px;
 }
 
 .UserModalFormBtn {
@@ -40,6 +42,8 @@ select {
   background-color: #ffe81f;
   height: 2em;
   width: 200px;
+  cursor: pointer;
+
 }
 
 .UserModalFormLabel {

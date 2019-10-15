@@ -10,6 +10,7 @@ import CharactersContainer from "../CharactersContainer/CharactersContainer";
 import FavoriteCharacters from "../FavoriteCharacters/FavoriteCharacters";
 import UserProfile from "../UserProfile/UserProfile";
 import BB8Loading from "../../images/BB8Loading.gif";
+import JediOrderCrest from "../../../src/images/JediOrderCrest.png"
 import "./App.css";
 if (process.env.NODE_ENV !== "test") ReactModal.setAppElement("#root");
 
@@ -134,13 +135,13 @@ export default class App extends React.Component {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: "rgba(255, 255, 255, 0.75)"
+              backgroundColor: "rgba(255, 255, 255, 0.75)",
             },
             content: {}
           }}
           className="MovieModal"
           overlayClassName="MovieModalOverlay"
-        >
+  >
           <MovieModal
             currentMovie={this.state.currentMovie}
             updatePlanetModalState={this.updatePlanetModalState}
