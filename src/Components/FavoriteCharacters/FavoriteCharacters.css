@@ -1,0 +1,9 @@
+.FavoriteCharacters {
+  display: flex;
+  flex-direction: column;
+}
+
+.noFavText {
+  color: #ffe81f;
+  font-size: 50px;
+}
