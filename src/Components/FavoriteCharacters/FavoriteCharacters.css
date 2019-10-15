@@ -1,0 +1,4 @@
+.FavoriteCharacters {
+  display: flex;
+  flex-direction: column;
+}
