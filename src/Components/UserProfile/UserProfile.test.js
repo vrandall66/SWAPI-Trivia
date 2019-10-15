@@ -47,4 +47,23 @@ describe("UserProfile", () => {
   it("should match the snapshot while isOpen prop is true", () => {
     expect(wrapper2).toMatchSnapshot();
   });
+
+  it("should call updateUserMenuState onClick of hamburger menu button", () => {
+    wrapper1.find('.UserProfile--userName').simulate('click')
+    
+    expect(updateUserMenuState).toHaveBeenCalled();
+  })
+
+  it("should call updateUserMenuState onClick of favorite characters button", () => {
+    wrapper2.find('.UserProfile__fav-characters').simulate('click')
+
+    expect(updateUserMenuState).toHaveBeenCalled();
+  })
+
+  it('should call userLogoutReset and updateUserMenuState onClick of user sign out button', () => {
+    wrapper2.find('.UserProfile__button--sign-out').simulate('click')
+
+    expect(updateUserMenuState).toHaveBeenCalled();
+    expect(userLogoutReset).toHaveBeenCalled();
+  })
 });
