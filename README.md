@@ -1,42 +1,67 @@
+# Swapi-Trivia
+
+## Table of Contents
+* [Built With](#Built-With) 
+* [Screenshots](#Screenshots)
+* [Features](#Features)
+* [Try It Out](#Try-It-Out)
+* [Take It For A Spin](#Take-It-For-A-Spin)
+* [Why'd-We-Do-This?](Why'd-We-Do-This?)
+* [Link to Project Management Board](Link-to-Project-Management-Board)
+
+
+## Built With
+
+- HTML5
+- CSS3
+- JavaScript
+- React
+- TDD (Jest, Enzyme)
+- OOP
+- Fetch API
+
+## Screenshots
+
+Swapi-Trivia allows us to design and create the UI/UX.
+Here are screen shots and a gif of a short walkthrough of the app.
+
+## Features
+
+
+- [x] Built on React
+- [x] React Modals
+- [ ] React Router
+- [ ] Fetch
+- [ ] Nested Fetch
+- [ ] Loading Screens while fetch is in progress
+- [ ] Paths making use of forward/back button
+- [ ] Favorited characters persist across web app and correctly appear when view other episodes
+- [ ] Signing out redirects back to main page, clearing out all data and resetting state for new user
+
+## Try It Out
+
+- [ ] Sign in with your name, favorite Star Wars quote and your ranking (novice, intermediate, expert)
+- [ ] Upon account creation,view all the Star Wars Eisodes next to the Death Star
+- [ ] Clicking on an Episode will produce a modal that shows the Episode details including:
+  - Title
+  - Episode Number
+  - Release Date
+  - Button to view all characters
+  - Button to close
+- [ ] Clicking View Characters will take you to a page showing the first 10 characters of the chosen Episode AND the infamous scrolling text at the begining of the film. 
+- [ ] Do you like a character from the film? Click the Death Star at the top of the Card. A red Death Star means you've favorited that character.
+- [ ] There is a pretty cool hamburger menu of LIGHT SABERS. Click and see them light up!
+- [ ] The User Profile shows your quote, ranking two buttons, one to sign out and the other to view favorite characters.
+- [ ] Favorite Characters page shows all of the characters you've favorited while browsing the episode.
+
+## Take It For A Spin
+
+View <a href=https://vrandall66.github.io/SWAPI-Trivia/>here</a> on GitHub.
+
+## Why'd We Do This?
+
+I am a student at Turing School of Software and Design, whom provioded the project specifications and website design. I am learning all the things on my way to becoming a Software Engineer.
+
+
+## Link to Project Management Board
 [Link to Project Management Board](https://github.com/users/vrandall66/projects/2)
-
-
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
