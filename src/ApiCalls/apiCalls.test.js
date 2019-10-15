@@ -90,3 +90,7 @@ describe("fetchCharacter", () => {
     fetchCharacter(charURL).then(character => expect(character).toEqual(mockResponse));
   });  
 });
+
+describe("fetchSpecies", () => {
+  
+})
