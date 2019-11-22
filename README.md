@@ -20,10 +20,12 @@
 - OOP
 - Fetch API
 
+## View the live site [here](https://vrandall66.github.io/SWAPI-Trivia/#/)
+
 ## Screenshots
 
-Swapi-Trivia allows us to design and create the UI/UX.
-Here are screen shots and a gif of a short walkthrough of the app.
+![UserForm](https://user-images.githubusercontent.com/31895658/69401734-13dab100-0cb3-11ea-9240-eabf2b514411.gif)
+![UserMenu-Favorites](https://user-images.githubusercontent.com/31895658/69401767-2c4acb80-0cb3-11ea-9b6d-4e38623506fa.gif)
 
 ## Features
 
